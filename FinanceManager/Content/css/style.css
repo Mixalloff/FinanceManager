@@ -1,0 +1,311 @@
+.profile{
+	width: 20%;
+	height: 100%;
+	background-color: yellow;
+	right:0;
+}
+
+section{
+	position: relative;
+	padding: 70px 0;
+}
+
+section h2{
+	text-align: center;
+	font-size: 24px;
+	text-transform: uppercase;
+	margin: 0 0 20px 0;
+	letter-spacing: 3px;
+}
+
+section h3{
+	text-align: center;
+	font-size: 12px;
+	text-transform: uppercase;
+	margin: 0 0 30px 0 ;
+	letter-spacing: 3px
+}
+
+.sectionHeadBlock{
+	margin-bottom: 50px;
+
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+/*	animation-delay: .7s;
+	vendor-animation-delay: .7s;*/
+}
+
+.aboutSection{
+	background-color: #fff;
+}
+
+.tariffSection{
+	background-color: #ccc;
+}
+
+.contactsSection{
+	background-color: #b0b7c6;
+}
+
+footer{
+	padding: 25px 0;
+	font-size: 14px;
+	color: #fff;
+	background-color: #444444;
+}
+
+.projNameContainer{
+	width: 60%;
+	padding: 10px;
+	margin: 20% 20% 0 20%;
+}
+
+/*.projNameContainer:before{
+	box-shadow: 0 0 100% rgba(0, 0, 0, 0.8);
+}*/
+
+.projectName{
+background-color: rgba(0,0,0,.3);
+	border: 3px solid white;
+	box-shadow: rgba(0, 0, 0, .3) 0 0 0 1000px;
+
+	font-size: 3.5em;
+	text-transform: uppercase;
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+	letter-spacing: 8px;
+	margin: 0;
+	width: 100%;
+
+
+	animation-delay: .7s;
+	-webkit-animation-delay: .7s;
+	vendor-animation-delay: .7s;
+}
+
+.slogan{
+	width: 100%;
+	margin: 10px;
+	font-size: 14px;
+	text-align: center;
+	color: #fff;
+	letter-spacing: .7em;
+	text-transform: uppercase;
+	position: relative;
+
+-webkit-animation-delay: 1s;
+	animation-delay: 1s;
+	vendor-animation-delay: 1s;
+}
+
+.line{
+	height: 1px;
+	width: 150px;
+	background-color: #000;
+	margin: 0 auto;
+}
+
+.headSection{
+	min-height: 600px;
+	padding-top: 20px;	
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+}
+
+/* Прелоадер до загрузки страницы */
+.loader {
+    background: none repeat scroll 0 0 #ffffff;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.loaderInner {
+    background-image: url("../Images/loader.gif");
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    background-color: #fff;
+    height: 60px;
+    width: 60px;
+    margin-top: -30px;
+    margin-left: -30px;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+}
+/*...............*/
+
+/* Кнопка меню */
+.toogleMenu{
+	width: 70px;
+	height: 70px;
+	/*float: left;*/
+	top: 20px;
+	margin-left: 47%;
+	position: fixed;
+-webkit-transform: translateZ(0);
+-moz-transform: translateZ(0);
+
+	background-color: black;
+	border: none;
+	border-radius: 60px;
+	cursor: pointer;
+	z-index: 10;
+}
+/*...............*/
+
+.toogleMenu:hover .sandwich>div{
+	background: #f00;
+	/*transition: all 0.5s;*/
+}
+
+/* Эффект кнопки меню */
+.sandwich {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 30% auto 30% auto;
+}
+.sw-topper {
+  position: relative;
+  top: 0;
+  width: 100%;
+  height: 10%;
+  background: #fff;
+  border: none;
+  border-radius: 4px 4px 4px 4px;
+  transition: transform 0.5s, top 0.2s;
+  transition-delay: 0.2s, 0s; 
+}
+.sw-bottom {
+  position: relative;
+  width: 100%;
+  height: 10%;
+  top: 20%;
+  background: #fff;
+  border: none;
+  border-radius: 4px 4px 4px 4px;
+  transition: transform 0.5s, top 0.2s;
+  /*transition-delay: 0.2s, 0s;*/
+}
+.sw-footer {
+  position: relative;
+  width: 100%;
+  height: 10%;
+  top: 40%;
+  background: #fff;
+  border: none;
+  border-radius: 4px 4px 4px 4px;
+  transition: all 0.5s;
+  transition-delay: 0.1s;
+}
+.sandwich.active .sw-topper {
+  top: 35%;
+  transform: rotate(140deg);
+}
+.sandwich.active .sw-bottom {
+  top: 25%;
+  transform: rotate(-140deg);
+}
+.sandwich.active .sw-footer {
+  opacity: 0;
+  top: 0;
+  transform: rotate(180deg);
+}
+/*...............*/
+
+.topMenu{
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0,0,0,.9);
+	/*left: 50%;*/
+
+	z-index: 9;
+	right:0;
+	top: 0;
+	display: none;
+}
+
+.topMenu ul{
+	list-style-type: none;
+	margin: 20% 0 0 0;
+	padding: 0;
+}
+
+.topMenu li{
+	margin-top: 3%;
+	text-align: center;
+}
+
+.menuItem{
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 12px;
+	letter-spacing: 3px;
+}
+
+.topMenu a:hover{
+	z-index: 100;
+	color: #f00;
+	text-decoration: none;
+	
+}
+
+/*.topMenu a:hover .topMenu li{
+	background-color: white;
+}*/
+
+.imgAbout{
+	text-align: center;
+	overflow: hidden;
+}
+
+.imgAbout img{
+	display: inline-block;
+	max-width: 100%;
+}
+
+.usualText {
+	font-size: 1.2em;
+	font-weight: 400;
+	letter-spacing: 1px;
+}
+
+.usualText p:nth-child(2n+1){
+	color: #809157;
+	margin-bottom: 20px;
+}
+
+.usualText ul,
+.usualText li {
+	list-style-type: none;
+	margin: 0 0 10px 0;
+	padding: 0;
+}
+
+.usualText a{
+	text-decoration: none;
+}
+
+.socialNetworks li{
+	display: inline-block;
+	font-size: 26px;
+	padding: 0 5px;
+}
+
+.socialNetworks a:hover{
+	color: #f00;
+}
