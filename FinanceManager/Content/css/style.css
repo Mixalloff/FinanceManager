@@ -1,118 +1,3 @@
-.profile{
-	width: 20%;
-	height: 100%;
-	background-color: yellow;
-	right:0;
-}
-
-section{
-	position: relative;
-	padding: 70px 0;
-}
-
-section h2{
-	text-align: center;
-	font-size: 24px;
-	text-transform: uppercase;
-	margin: 0 0 20px 0;
-	letter-spacing: 3px;
-}
-
-section h3{
-	text-align: center;
-	font-size: 12px;
-	text-transform: uppercase;
-	margin: 0 0 30px 0 ;
-	letter-spacing: 3px
-}
-
-.sectionHeadBlock{
-	margin-bottom: 50px;
-
-	-webkit-transform: translateZ(0);
-	-moz-transform: translateZ(0);
-/*	animation-delay: .7s;
-	vendor-animation-delay: .7s;*/
-}
-
-.aboutSection{
-	background-color: #fff;
-}
-
-.tariffSection{
-	background-color: #ccc;
-}
-
-.contactsSection{
-	background-color: #b0b7c6;
-}
-
-footer{
-	padding: 25px 0;
-	font-size: 14px;
-	color: #fff;
-	background-color: #444444;
-}
-
-.projNameContainer{
-	width: 60%;
-	padding: 10px;
-	margin: 20% 20% 0 20%;
-}
-
-/*.projNameContainer:before{
-	box-shadow: 0 0 100% rgba(0, 0, 0, 0.8);
-}*/
-
-.projectName{
-background-color: rgba(0,0,0,.3);
-	border: 3px solid white;
-	box-shadow: rgba(0, 0, 0, .3) 0 0 0 1000px;
-
-	font-size: 3.5em;
-	text-transform: uppercase;
-	text-align: center;
-	color: #fff;
-	font-weight: bold;
-	letter-spacing: 8px;
-	margin: 0;
-	width: 100%;
-
-
-	animation-delay: .7s;
-	-webkit-animation-delay: .7s;
-	vendor-animation-delay: .7s;
-}
-
-.slogan{
-	width: 100%;
-	margin: 10px;
-	font-size: 14px;
-	text-align: center;
-	color: #fff;
-	letter-spacing: .7em;
-	text-transform: uppercase;
-	position: relative;
-
--webkit-animation-delay: 1s;
-	animation-delay: 1s;
-	vendor-animation-delay: 1s;
-}
-
-.line{
-	height: 1px;
-	width: 150px;
-	background-color: #000;
-	margin: 0 auto;
-}
-
-.headSection{
-	min-height: 600px;
-	padding-top: 20px;	
-	-webkit-transform: translateZ(0);
-	-moz-transform: translateZ(0);
-}
-
 /* Прелоадер до загрузки страницы */
 .loader {
     background: none repeat scroll 0 0 #ffffff;
@@ -143,28 +28,122 @@ background-color: rgba(0,0,0,.3);
 }
 /*...............*/
 
-/* Кнопка меню */
-.toogleMenu{
-	width: 70px;
-	height: 70px;
-	/*float: left;*/
-	top: 20px;
-	margin-left: 47%;
+/* Основные элементы */
+header{
 	position: fixed;
--webkit-transform: translateZ(0);
--moz-transform: translateZ(0);
+	height: 100px;
+	margin-top: 20px;
+	z-index: 1000;
+	width: 100%;
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+}
 
-	background-color: black;
-	border: none;
-	border-radius: 60px;
-	cursor: pointer;
-	z-index: 10;
+section{
+	position: relative;
+	padding: 70px 0;
+}
+
+section h2{
+	text-align: center;
+	font-size: 24px;
+	text-transform: uppercase;
+	margin: 0 0 20px 0;
+	letter-spacing: 3px;
+}
+
+section h3{
+	text-align: center;
+	font-size: 12px;
+	text-transform: uppercase;
+	margin: 0 0 30px 0 ;
+	letter-spacing: 3px
+}
+
+.line{
+	height: 1px;
+	width: 150px;
+	background-color: #000;
+	margin: 0 auto;
+}
+
+.sectionHeadBlock{
+	margin-bottom: 50px;
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+}
+
+.aboutSection{
+	background-color: #fff;
+}
+
+.tariffSection{
+	background-color: #ccc;
+}
+
+.contactsSection{
+	background-color: #b0b7c6;
+}
+
+footer{
+	padding: 25px 0;
+	font-size: 14px;
+	color: #fff;
+	background-color: #444444;
 }
 /*...............*/
 
+/* 1 секция */
+.projNameContainer{
+	width: 60%;
+	padding: 10px;
+	margin: 20% 20% 0 20%;
+}
+
+.projectName{
+background-color: rgba(0,0,0,.3);
+	border: 3px solid white;
+	box-shadow: rgba(0, 0, 0, .3) 0 0 0 1000px;
+
+	font-size: 3.5em;
+	text-transform: uppercase;
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+	letter-spacing: 8px;
+	margin: 0;
+	width: 100%;
+
+	animation-delay: .7s;
+	-webkit-animation-delay: .7s;
+}
+
+.slogan{
+	width: 100%;
+	margin: 10px;
+	font-size: 14px;
+	text-align: center;
+	color: #fff;
+	letter-spacing: .7em;
+	text-transform: uppercase;
+	position: relative;
+
+	-webkit-animation-delay: 1s;
+	-moz-animation-delay: 1s;
+	animation-delay: 1s;
+}
+
+.headSection{
+	min-height: 600px;
+	padding-top: 20px;	
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+}
+/*...............*/
+
+/* Header */
 .toogleMenu:hover .sandwich>div{
 	background: #f00;
-	/*transition: all 0.5s;*/
 }
 
 /* Эффект кнопки меню */
@@ -231,8 +210,6 @@ background-color: rgba(0,0,0,.3);
 	height: 100%;
 	width: 100%;
 	background-color: rgba(0,0,0,.9);
-	/*left: 50%;*/
-
 	z-index: 9;
 	right:0;
 	top: 0;
@@ -261,13 +238,110 @@ background-color: rgba(0,0,0,.3);
 	z-index: 100;
 	color: #f00;
 	text-decoration: none;
-	
 }
 
-/*.topMenu a:hover .topMenu li{
-	background-color: white;
-}*/
+/* Кнопка меню */
+.headCircleBtn{
+	width: 70px;
+	height: 70px;
+	position: fixed;
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	background-color: black;
+	border: none;
+	border-radius: 60px;
+	cursor: pointer;
+	z-index: 10;
+	top: 20px;
+}
 
+.toogleMenu{
+	/*margin-left: 47%;*/
+	left: 20px;
+}
+/*...............*/
+
+/* Кнопка SignIn */
+.hiddenSignIn{
+	right: 20px;
+	color: white;
+}
+
+.hiddenSignIn i{
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	font-size: 30px;
+	margin-top: 20px;
+}
+
+.hiddenSignIn:hover{
+	color: red;
+}
+
+.signInBlock:hover .hiddenSignIn{
+	color: white;
+}
+
+.signInBlock{
+	display: none;
+	cursor: default;
+	padding-top: 20px;
+	position: absolute;
+	height: 250px;
+	width: 350px;
+	right: -20px;
+	top: 0;
+	background-color: rgba(0, 0, 0, .8);
+}
+
+.signInBlock p,
+.signInBlock input{
+	width: 50%;
+	margin: 0 0 0 25%;
+}
+
+.signInBlock p{
+	text-align: center;
+	color: white;
+}
+
+.signInBlock input{
+	color: black;
+	margin-bottom: 10px;
+}
+
+.buttons{
+	/*float: right;*/
+	height: 15%;
+	/*margin: 20px 10px;*/
+	bottom: 0;
+	position: absolute;
+	border: none;
+	border-radius: 10px;
+	color: white;
+	letter-spacing: 2px;
+	padding: 0;
+}
+
+.signInBtn{
+	width:  30%;
+	background-color: blue;
+	/*margin-right: 0px;*/
+	left: 35%;
+	bottom: 30%;
+}
+
+.registerBtn{
+	width:  40%;
+	background-color: green;
+	left: 30%;
+	bottom: 10%;
+}
+/*...........*/
+/*...........*/
+
+/* 2 секция */
 .imgAbout{
 	text-align: center;
 	overflow: hidden;
@@ -309,3 +383,4 @@ background-color: rgba(0,0,0,.3);
 .socialNetworks a:hover{
 	color: #f00;
 }
+/*...........*/

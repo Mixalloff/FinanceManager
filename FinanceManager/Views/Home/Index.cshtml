@@ -26,7 +26,7 @@
 	</div>
 
 	<header>
-		<div class="toogleMenu">
+		<div class="toogleMenu headCircleBtn">
 			<div class='sandwich'>
 				<div class='sw-topper'></div>
 				<div class='sw-bottom'></div>
@@ -34,16 +34,32 @@
 			</div>
 		</div>
 
-		<div class="topMenu">
+		<div class="hiddenSignIn headCircleBtn">
+			<i class="fa fa-bank"></i>
+		</div>
+		<div class="signInBlock">
+				<p>Логин или e-mail:</p>
+				<input class="email" type="text">
+				<p>Пароль:</p>
+				<input class="password" type="password">
+
+				<button class="registerBtn buttons">Регистрация</button>
+				<button class="signInBtn buttons">Войти</button>
+			</div>
+
+		
+	</header>
+
+	<div class="topMenu">
 			<ul>
-				<li><a class="menuItem" href="#">Начало работы</a></li>
-				<li><a  class="menuItem" href="#">О проекте</a></li>
-				<li><a  class="menuItem" href="#">Тарифы</a></li>
-				<li><a  class="menuItem" href="#">Контакты</a></li>		
+				<li><a class="menuItem" href="#headId">Начало работы</a></li>
+				<li><a  class="menuItem" href="#aboutId">О проекте</a></li>
+				<li><a  class="menuItem" href="#tariffId">Тарифы</a></li>
+				<li><a  class="menuItem" href="#contactsId">Контакты</a></li>		
 			</ul>
 		</div>
-	</header>
-	<section class="headSection parallax-window" data-parallax="scroll" data-image-src="Content/Images/headSection.jpg">
+
+	<section id="headId" class="headSection parallax-window" data-parallax="scroll" data-image-src="Content/Images/headSection.jpg">
 
 		<div class="container">
 			<div class="row">
@@ -63,7 +79,7 @@
 
 	</section>
 
-	<section id="about" class="aboutSection">
+	<section id="aboutId" class="aboutSection">
 		<div class="sectionHeadBlock">
 			<h2 >О проекте</h2>
 			<h3>Для чего нужен этот проект?</h3>
@@ -122,7 +138,7 @@
 		</div>
 	</section>
 
-	<section id="tariff" class="tariffSection">
+	<section id="tariffId" class="tariffSection">
 	<div class="sectionHeadBlock">
 		<h2>Тарифы</h2>
 		<h3>Выберите подходящий вариант тарифа</h3>
@@ -130,7 +146,7 @@
 		</div>
 	</section>
 
-	<section id="contacts" class="contactsSection">
+	<section id="contactsId" class="contactsSection">
 	<div class="sectionHeadBlock">
 		<h2>Контакты</h2>
 		<h3>Вы можете оставить свое сообщение</h3>
