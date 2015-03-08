@@ -42,6 +42,7 @@ header{
 section{
 	position: relative;
 	padding: 70px 0;
+    overflow: hidden;
 }
 
 section h2{
@@ -288,20 +289,23 @@ background-color: rgba(0,0,0,.3);
 	cursor: default;
 	padding-top: 20px;
 	position: absolute;
-	height: 250px;
+	/*height: 250px;*/
 	width: 350px;
 	right: -20px;
 	top: 0;
 	background-color: rgba(0, 0, 0, .8);
+    box-shadow: rgba(0, 0, 0, 1) 0px 0px 10px;
+    padding: 1% 1%;
+
 }
 
-.signInBlock p,
+.signInBlock label,
 .signInBlock input{
 	width: 50%;
 	margin: 0 0 0 25%;
 }
 
-.signInBlock p{
+.signInBlock label{
 	text-align: center;
 	color: white;
 }
@@ -309,6 +313,17 @@ background-color: rgba(0,0,0,.3);
 .signInBlock input{
 	color: black;
 	margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.info
+{
+    width: 98%;
+    background-color: blue;
+    color: black;
+    letter-spacing: 2px;
+    padding: 15px 5px;
+    text-align: center;
 }
 
 .buttons{
@@ -316,29 +331,127 @@ background-color: rgba(0,0,0,.3);
 	height: 15%;
 	/*margin: 20px 10px;*/
 	bottom: 0;
-	position: absolute;
+	position: relative;
 	border: none;
-	border-radius: 10px;
+	border-radius: 5px;
 	color: white;
 	letter-spacing: 2px;
 	padding: 0;
+    margin-top: 5%;
+    display: block;
+    height: 35px;
 }
 
 .signInBtn{
 	width:  30%;
-	background-color: blue;
+	background-color: #006BDB;
 	/*margin-right: 0px;*/
 	left: 35%;
-	bottom: 30%;
+	/*bottom: 30%;*/
+    background-image:  linear-gradient(top, #0088cc, #0055cc);
+    background-image: -webkit-linear-gradient(top, #0088cc, #0055cc);
+    background-image: -o-linear-gradient(top, #0088cc, #0055cc);
+    background-image: -moz-linear-gradient(top, #0088cc, #0055cc);
 }
 
 .registerBtn{
 	width:  40%;
-	background-color: green;
+	background-color: #008800;
 	left: 30%;
-	bottom: 10%;
+	/*bottom: 10%;*/
+    background-image:  linear-gradient(top, #008800, #005500);
+    background-image: -webkit-linear-gradient(top, #008800, #005500);
+    background-image: -o-linear-gradient(top, #008800, #005500);
+    background-image: -moz-linear-gradient(top, #008800, #005500);
+}
+
+.signInBtn:hover{
+    background-image:  linear-gradient(top, #00aacc, #0055cc);
+    background-image: -webkit-linear-gradient(top, #00aacc, #0055cc);
+    background-image: -o-linear-gradient(top, #00aacc, #0055cc);
+    background-image: -moz-linear-gradient(top, #00aacc, #0055cc);
+}
+
+.registerBtn:hover{
+    background-image:  linear-gradient(top, #00aa00, #005500);
+    background-image: -webkit-linear-gradient(top, #00aa00, #005500);
+    background-image: -o-linear-gradient(top, #00aa00, #005500);
+    background-image: -moz-linear-gradient(top, #00aa00, #005500);
+}
+
+.errMessage
+{
+    background-color: red;
 }
 /*...........*/
+
+.registerForm{
+	box-shadow: rgba(0, 0, 0, .6) 0 0 0 1000px;
+	width: 40%;
+	padding: 20px;
+	margin: 0 auto;
+	/*display: none;*/
+	background-color: white;
+	position: relative;
+    border-radius: 10px;
+}
+
+.registerForm input {
+	width: 40%;
+}
+
+.registerForm label{
+	width: 40%;
+    text-align: right;
+    margin: auto 5%;
+}
+
+.registerForm div{
+	width: 100%;
+	padding: 0 15px;
+}
+
+.registerForm div:nth-child(2n){
+	background-color: #ccc;
+}
+
+.registerForm div:nth-child(2n+1){
+	background-color: #fff;
+}
+
+.registerForm label+input{
+	display: inline-block;
+	margin: 10px 0;
+}
+
+.closeBtn
+{
+    width: 20px;
+    height: 20px;
+    right: 0;
+    top: 0;
+    position: absolute;
+    font-size: 20px!important;
+}
+
+.closeBtn:hover
+{
+    color: red;
+    cursor: pointer;
+}
+
+.registerForm p
+{
+    font-size: 12px;
+    color: red;
+}
+
+.registerForm strong
+{
+    font-size: 18px;
+    color: red;
+}
+
 /*...........*/
 
 /* 2 секция */

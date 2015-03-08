@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -11,7 +12,7 @@ namespace FinanceManager.Models.Entities
         /// <summary>
         /// Возвращает или задает идентификатор банковской карты
         /// </summary>
-        [Key]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int BankCardId { get; set; }
 
         /// <summary>

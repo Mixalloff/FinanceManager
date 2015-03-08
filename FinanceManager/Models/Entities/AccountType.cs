@@ -23,7 +23,7 @@ namespace FinanceManager.Models.Entities
         /// <summary>
         /// Возвращает или задает идентификатор типа счета
         /// </summary>
-        [Key]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int AccountTypeId { get; set; }
 
         /// <summary>

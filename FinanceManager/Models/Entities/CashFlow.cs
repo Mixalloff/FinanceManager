@@ -15,7 +15,7 @@ namespace FinanceManager.Models.Entities
         /// <summary>
         /// Возвращает или задает идентификатор записи архива
         /// </summary>
-        [Key]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CashFlowId { get; set; }
 
         /// <summary>

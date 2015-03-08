@@ -15,7 +15,7 @@ namespace FinanceManager.Models.Entities
         /// <summary>
         /// Возвращает или задает идентификатор счета
         /// </summary>
-        [Key]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int AccountId { get; set; }
 
         /// <summary>

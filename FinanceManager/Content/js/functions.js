@@ -36,7 +36,7 @@ $(document).ready(function () {
     });
 
     // Закрытие окна авторизации при щелчке по свободной зоне
-    $(document).click(function () {
+    $(document).click(function (event) {
         if ($(event.target).closest(".hiddenSignIn").length) return;
         if ($(".signInBlock").is(":visible")) {
             $(".signInBlock").removeClass("fadeInRight animated");
@@ -59,6 +59,11 @@ $(document).ready(function () {
         $(".topMenu").fadeOut(400);
         $(".topMenu").removeClass("fadeOutUp animated");
     });
+
+    //$("button[name='registerWindow']").click(function () {
+    //    $(".registerForm").fadeToggle(600);
+    //});
+    
 
     // Анимация при скролле до элемента
     $(".projectName").animated("fadeInDown", "fadeOutUp");

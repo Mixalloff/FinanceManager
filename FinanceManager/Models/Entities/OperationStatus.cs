@@ -12,7 +12,7 @@ namespace FinanceManager.Models.Entities
         /// <summary>
         /// Возвращает или задает идентификатор статуса
         /// </summary>
-        [Key]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int OperationStatusId { get; set; }
 
         /// <summary>

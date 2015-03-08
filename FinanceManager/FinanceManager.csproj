@@ -114,10 +114,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AuthorizationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Authorization\LoginData.cs" />
     <Compile Include="Models\Entities\Account.cs" />
     <Compile Include="Models\Entities\AccountType.cs" />
     <Compile Include="Models\Entities\Archive.cs" />
@@ -134,7 +136,15 @@
     <Compile Include="Models\FinanceManagerDb.cs" />
     <Compile Include="Models\ProjectInitializer.cs" />
     <Compile Include="Models\Repositories\AbstractRepository.cs" />
+    <Compile Include="Models\Repositories\CurrencyRepository.cs" />
+    <Compile Include="Models\Repositories\RoleRepository.cs" />
+    <Compile Include="Models\Repositories\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -150,6 +160,7 @@
     <Content Include="Content\Images\headSection.jpg" />
     <Content Include="Content\Images\imgAbout.png" />
     <Content Include="Content\Images\loader.gif" />
+    <Content Include="Content\js\angular.min.js" />
     <Content Include="Content\js\animate-css.js" />
     <Content Include="Content\js\functions.js" />
     <Content Include="Content\js\jquery.js" />
@@ -158,6 +169,7 @@
     <Content Include="Content\js\parallax.min.js" />
     <Content Include="Content\js\waypoints.min.js" />
     <Content Include="Global.asax" />
+    <Content Include="SignIn\SignIn.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -184,6 +196,15 @@
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\FontAwesome.otf" />
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -200,7 +221,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>26733</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:36166/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

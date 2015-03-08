@@ -15,7 +15,7 @@ namespace FinanceManager.Models.Entities
         /// <summary>
         /// Возвращает или устанавливает идентификатор электронного хранилища
         /// </summary>
-        [Key]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int EWalletId { get; set; }
 
         /// <summary>

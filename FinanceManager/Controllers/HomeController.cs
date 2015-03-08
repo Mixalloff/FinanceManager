@@ -1,5 +1,6 @@
 ﻿using FinanceManager.Models;
 using FinanceManager.Models.Entities;
+using FinanceManager.Models.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,9 @@ namespace FinanceManager.Controllers
         // GET: /Home/
         public ActionResult Index()
         {
-            var type = new AccountType { AccountTypeId = 1, Name = "Mike" };
-            db.AccountTypes.Add(type);
-            int recordsAffected = db.SaveChanges();
+            //AbstractRepository<User> users = new AbstractRepository<User>();
+            //users.Create(new User { Login = "mixalloff", Password = "111", Name = "Михаил", Surname = "Михалев" });
+            //users.Save(db);
 
             return View();
         }
