@@ -7,36 +7,41 @@ moduleApp.controller("SignInController", function ($scope, $http) {
     $scope.WindowRegView = false;
 
     // Попытка авторизации
-    $scope.TrySignIn = function () {
-        $http.post('/Authorization/SignIn', {
-            login: $scope.userLogin,
-            password: $scope.userPassword,        
-        }).success(function (response) {
-            if (response.IsAuthenticated) {
-                SuccessSignIn();
-            }
-            else {
-                ErrorLoginOrPassword();
-            }
-        }).error(function (response) {
-            alert("Error: " + response);
-        });
-    }
+    $scope.TrySignIn = function (signIn, signInForm) {
+        if (signInForm.$valid) {
+            $http.post('/Authorization/SignIn', {
+                login: signIn.userLogin,
+                password: signIn.userPassword,
+            }).success(function (response) {
+                if (response.IsAuthenticated) {
+                    SuccessSignIn("Авторизация успешно пройдена!");
+                }
+                else {
+                    ErrorLoginOrPassword("Ошибка! Неверный логин и/или пароль!");
+                }
+            }).error(function (response) {
+                alert("Error: " + response);
+            });
+        }
+        else {
+            ErrorLoginOrPassword("Заполните все поля!");
+        }
+    } 
 
     // Вывод ошибки при авторизации
-    function ErrorLoginOrPassword() {
+    function ErrorLoginOrPassword(text) {
         $(".info").css("background-color", "#FCD4E2");
         $(".info").css("border-left", "#D52C2C solid 6px");
-        $scope.infoText = "Ошибка! Неверный логин и/или пароль!";
+        $scope.infoText = text;
         $scope.InfoView = true;
     }
     
     // Вывод сообщения об усешной авторизации
-    function SuccessSignIn() {
+    function SuccessSignIn(text) {
         $(".info").css("background-color", "#D4FCE2");
         $(".info").css("border-left", "#63B67A solid 6px");
-        $scope.infoText = "Авторизация успешно пройдена!";
-        $scope.InfoView = true;
+        $scope.infoText = text;
+        $scope.InfoView = true;       
        // setTimeout(function () { $scope.InfoView = false }, 5000);  
     }
 
@@ -51,19 +56,19 @@ moduleApp.controller("SignInController", function ($scope, $http) {
     }
 
     // Попытка регистрации
-    $scope.TryRegister = function () {
+    $scope.TryRegister = function (registerData, RegisterForm) {
+        if (RegisterForm.$valid) {
             $http.post('/Authorization/Register', {
-                name: $scope.newUserName,
-                surname: $scope.newUserSurname,
-                email: $scope.newUserEmail,
-                country: $scope.newUserCountry,
-                town: $scope.newUserTown,
-                login: $scope.newUserLogin,
-                password: $scope.newUserPassword,
-                currency: $scope.newUserCurrency
+                name: registerData.newUserName,
+                surname: registerData.newUserSurname,
+                email: registerData.newUserEmail,
+                country: registerData.newUserCountry,
+                town: registerData.newUserTown,
+                login: registerData.newUserLogin,
+                password: registerData.newUserPassword,
+                currency: registerData.newUserCurrency
             }).success(function (response) {
-                if(response)
-                {
+                if (response) {
                     alert("Пользователь добавлен");
                 }
                 else {
@@ -73,4 +78,5 @@ moduleApp.controller("SignInController", function ($scope, $http) {
                 alert("Error: " + response);
             });
         }
+    }
 });

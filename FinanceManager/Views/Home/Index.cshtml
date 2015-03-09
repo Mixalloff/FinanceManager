@@ -39,66 +39,66 @@
 		<div class="hiddenSignIn headCircleBtn">
 			<i class="fa fa-bank"></i>
 		</div>
-		<form class="signInBlock">
+		<form class="signInBlock" name="SignInForm">
 			<label for="login">Логин или e-mail:</label>
-			<input name="login" class="login" ng-model="userLogin" type="text" placeholder="E-mail или логин">
+			<input id="login" class="login" ng-model="signIn.userLogin" required type="text" placeholder="E-mail или логин">
 			<label for="password">Пароль:</label>
-			<input name="password" class="password" ng-model="userPassword" type="password" placeholder="Пароль">
+			<input id="password" class="password" ng-model="signIn.userPassword" required type="password" placeholder="Пароль">
             <div class="info animated fadeInRight" ng-show="InfoView">{{infoText}}</div>
-            <button class="signInBtn buttons" ng-click="TrySignIn()">Войти</button>
+            <button type="submit" class="signInBtn buttons" ng-click="TrySignIn(signIn, SignInForm)">Войти</button>
 			<button name="registerWindow" class="registerBtn buttons" ng-click="OpenRegisterForm()">Регистрация</button>
 		</form>
 
-        <form class="registerForm" ng-show="WindowRegView">
-            <i class="closeBtn fa fa-close"  ng-click="CloseRegisterForm()"></i>
+        <form class="registerForm" name="RegisterForm" ng-if="WindowRegView">
+            <i class="closeBtn fa fa-close" ng-click="CloseRegisterForm()"></i>
 			<h1>Регистрация</h1>
 			<div>
 				<label for="newName">Имя: <strong>*</strong></label>
-				<input ng-model="newUserName" name="newName" type="text" placeholder="Имя"><br/>
+				<input ng-model="registerData.newUserName" required id="newName" type="text" placeholder="Имя"><br/>
 			</div>
 
 			<div>
 				<label for="newSurname">Фамилия: <strong>*</strong></label>
-				<input ng-model="newUserSurname" name="newSurname" type="text" placeholder="Фамилия"><br/>
+				<input ng-model="registerData.newUserSurname" required id="newSurname" type="text" placeholder="Фамилия"><br/>
 			</div>
 
 			<div>
 				<label for="newEmail">E-mail: <strong>*</strong></label>
-				<input ng-model="newUserEmail" name="newEmail" type="email" placeholder="E-mail"><br/>
+				<input ng-model="registerData.newUserEmail" required id="newEmail" type="email" placeholder="E-mail"><br/>
 			</div>
 
 			<div>
 				<label for="newCountry">Страна:</label>
-				<input ng-model="newUserCountry" name="newCountry" type="text" placeholder="Страна"><br/>
+				<input ng-model="registerData.newUserCountry" id="newCountry" type="text" placeholder="Страна"><br/>
 			</div>
 
 			<div>
 				<label for="newTown">Город:</label>
-				<input ng-model="newUserTown" name="newTown" type="text" placeholder="Город"><br/>
+				<input ng-model="registerData.newUserTown" id="newTown" type="text" placeholder="Город"><br/>
 			</div>
 
 			<div>
 				<label for="newLogin">Логин: <strong>*</strong></label>
-				<input ng-model="newUserLogin" name="newLogin" type="text" placeholder="Логин"><br/>
+				<input ng-model="registerData.newUserLogin" required id="newLogin" type="text" placeholder="Логин"><br/>
 			</div>
 
 			<div>
 				<label for="newPassword">Пароль: <strong>*</strong></label>
-				<input ng-model="newUserPassword" name="newPassword" type="password" placeholder="Пароль"><br/>
+				<input ng-model="registerData.newUserPassword" required id="newPassword" type="password" placeholder="Пароль"><br/>
 			</div>
 
 			<div>
 				<label for="newPasswordReplay">Повторите пароль: <strong>*</strong></label>
-				<input ng-model="newUserPasswordReplay" name="newPasswordReplay" type="password" placeholder="Повторите пароль"><br/>
+				<input ng-model="registerData.newUserPasswordReplay" required id="newPasswordReplay" type="password" placeholder="Повторите пароль"><br/>
 			</div>
 
             <div>
 				<label for="newCurrency">Основная валюта:</label>
-				<input ng-model="newUserCurrency" name="newCurrency" type="text" placeholder="Основная валюта"><br/>
+				<input ng-model="registerData.newUserCurrency" id="newCurrency" required type="text" placeholder="Основная валюта"><br/>
 			</div>
 
             <p>* помечены обязательные для заполнения поля</p>
-			<button ng-click="TryRegister()" class="registerBtn buttons">Зарегистрироваться</button>
+			<button type="submit" ng-click="TryRegister(registerData, RegisterForm)" class="registerBtn buttons">Зарегистрироваться</button>
 		</form>
 		
 	</header>
