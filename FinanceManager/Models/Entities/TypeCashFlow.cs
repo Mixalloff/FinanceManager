@@ -13,6 +13,15 @@ namespace FinanceManager.Models.Entities
     public class TypeCashFlow
     {
         /// <summary>
+        /// Конструктор
+        /// </summary>
+        public TypeCashFlow()
+        {
+            this.CashFlows = new List<CashFlow>();
+            this.TypeCashFlows = new List<TypeCashFlow>();
+        }
+
+        /// <summary>
         /// Возвращает или задает идентификатор типа потоков
         /// </summary>
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -33,5 +42,14 @@ namespace FinanceManager.Models.Entities
         /// </summary>
         public TypeCashFlow Link { get; set; }
 
+        /// <summary>
+        /// Возвращает или задает список связанных денежных потоков
+        /// </summary>
+        public virtual ICollection<CashFlow> CashFlows { get; set; }
+
+        /// <summary>
+        /// Возвращает или задает список дочерних типов денежных потоков
+        /// </summary>
+        public virtual ICollection<TypeCashFlow> TypeCashFlows { get; set; }
     }
 }

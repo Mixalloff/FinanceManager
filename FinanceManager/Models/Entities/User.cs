@@ -19,6 +19,7 @@ namespace FinanceManager.Models.Entities
         {
             this.Roles = new List<Role>();
             this.Accounts = new List<Account>();
+            this.Groups = new List<Group>();
         }
 
         /// <summary>
@@ -77,7 +78,7 @@ namespace FinanceManager.Models.Entities
         /// </summary>
         public virtual ICollection<Role> Roles { get; set; }
 
-        // <summary>
+        /// <summary>
         /// Возвращает или задает список счетов, принадлежащих пользователю
         /// </summary>
         public virtual ICollection<Account> Accounts { get; set; }
@@ -87,5 +88,10 @@ namespace FinanceManager.Models.Entities
         /// </summary>
        // [ForeignKey("CurrencyId")]
         public virtual Currency MainCurrency { get; set; }
+
+        // <summary>
+        /// Возвращает или задает список групп пользователя
+        /// </summary>
+        public virtual ICollection<Group> Groups { get; set; }
     }
 }

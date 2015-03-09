@@ -12,9 +12,13 @@ namespace FinanceManager.Models.Entities
     /// </summary>
     public class Currency
     {
+        /// <summary>
+        /// Конструктор
+        /// </summary>
         public Currency()
         {
-            Users = new List<User>();
+            this.Users = new List<User>();
+            this.Accounts = new List<Account>();
         }
 
         /// <summary>
@@ -38,6 +42,14 @@ namespace FinanceManager.Models.Entities
         /// </summary>
         public double Quote { get; set; }
 
+        /// <summary>
+        /// Возвращает или задает список связанных пользователей
+        /// </summary>
         public virtual ICollection<User> Users{ get; set; }
+
+        /// <summary>
+        /// Возвращает или задает список связанных счетов
+        /// </summary>
+        public virtual ICollection<Account> Accounts { get; set; }
     }
 }

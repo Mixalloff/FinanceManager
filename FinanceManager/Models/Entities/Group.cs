@@ -13,6 +13,15 @@ namespace FinanceManager.Models.Entities
     public class Group
     {
         /// <summary>
+        /// Конструктор
+        /// </summary>
+        public Group()
+        {
+            this.CashFlows = new List<CashFlow>();
+            this.Groups = new List<Group>();
+        }
+
+        /// <summary>
         /// Возвращает или задает идентификатор группы
         /// </summary>
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -37,5 +46,15 @@ namespace FinanceManager.Models.Entities
         /// Возвращает или задает владельца группы
         /// </summary>
         public User UserId { get; set; }
+
+        /// <summary>
+        /// Возвращает или задает связанные денежные потоки
+        /// </summary>
+        public virtual ICollection<CashFlow> CashFlows { get; set; }
+
+        /// <summary>
+        /// Возвращает или задает дочерние группы
+        /// </summary>
+        public virtual ICollection<Group> Groups { get; set; }
     }
 }

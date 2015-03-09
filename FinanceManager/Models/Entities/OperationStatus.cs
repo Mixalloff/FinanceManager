@@ -10,6 +10,14 @@ namespace FinanceManager.Models.Entities
     public class OperationStatus
     {
         /// <summary>
+        /// Конструктор
+        /// </summary>
+        public OperationStatus()
+        {
+            this.CashFlows = new List<CashFlow>();
+        }
+
+        /// <summary>
         /// Возвращает или задает идентификатор статуса
         /// </summary>
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -19,5 +27,10 @@ namespace FinanceManager.Models.Entities
         /// Возвращает или задает наименование статуса
         /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// Возвращает или задает связанные денежные потоки
+        /// </summary>
+        public virtual ICollection<CashFlow> CashFlows { get; set; }
     }
 }

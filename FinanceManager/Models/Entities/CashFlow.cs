@@ -12,6 +12,12 @@ namespace FinanceManager.Models.Entities
     /// </summary>
     public class CashFlow
     {
+        public CashFlow()
+        {
+            this.Archives = new List<Archive>();
+            this.Links = new List<CashFlow>();
+        }
+
         /// <summary>
         /// Возвращает или задает идентификатор записи архива
         /// </summary>
@@ -82,5 +88,15 @@ namespace FinanceManager.Models.Entities
         /// Возвращает или задает заметки к потоку
         /// </summary>
         public string Notes { get; set; }
+
+        /// <summary>
+        /// Возвращает или задает список связанных записей в архиве
+        /// </summary>
+        public virtual ICollection<Archive> Archives { get; set; }
+
+        /// <summary>
+        /// Возвращает или задает список дочерних потоков
+        /// </summary>
+        public virtual ICollection<CashFlow> Links { get; set; }
     }
 }

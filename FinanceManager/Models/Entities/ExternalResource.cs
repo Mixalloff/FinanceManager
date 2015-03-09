@@ -13,6 +13,14 @@ namespace FinanceManager.Models.Entities
     public class ExternalResource
     {
         /// <summary>
+        /// Конструктор
+        /// </summary>
+        public ExternalResource()
+        {
+            this.EWallets = new List<EWallet>();
+        }
+
+        /// <summary>
         /// Возвращает или задает идентификатор ресурсв
         /// </summary>
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -26,6 +34,11 @@ namespace FinanceManager.Models.Entities
         /// <summary>
         /// Возвращает или задает url ресурса
         /// </summary>
-        public string Url { get; set; }        
+        public string Url { get; set; }
+
+        /// <summary>
+        /// Возвращает или задает связанные электронные кошельки
+        /// </summary>
+        public virtual ICollection<EWallet> EWallets { get; set; }
     }
 }

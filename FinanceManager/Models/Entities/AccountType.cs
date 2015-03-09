@@ -17,7 +17,7 @@ namespace FinanceManager.Models.Entities
         /// </summary>
         public AccountType()
         {
-          //  this.Accounts = new List<Account>();
+            this.Accounts = new List<Account>();
         }
 
         /// <summary>
@@ -35,6 +35,6 @@ namespace FinanceManager.Models.Entities
         /// <summary>
         /// Возвращает или задает список счетов, имеющих данный тип
         /// </summary>
-       // public virtual ICollection<Account> Accounts { get; set; }
+        public virtual ICollection<Account> Accounts { get; set; }
     }
 }

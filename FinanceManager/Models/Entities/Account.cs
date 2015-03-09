@@ -13,6 +13,16 @@ namespace FinanceManager.Models.Entities
     public class Account
     {
         /// <summary>
+        /// Конструктор
+        /// </summary>
+        public Account()
+        {
+            this.BankCards = new List<BankCard>();
+            this.EWallets = new List<EWallet>();
+            this.CashFlows = new List<CashFlow>();
+        }
+
+        /// <summary>
         /// Возвращает или задает идентификатор счета
         /// </summary>
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -50,5 +60,21 @@ namespace FinanceManager.Models.Entities
         /// Возвращает или задает пользователя, владеющего счетом
         /// </summary>
         public User User { get; set; }
+
+        /// <summary>
+        /// Возвращает или задает связи с банковскими картами
+        /// </summary>
+        public virtual ICollection<BankCard> BankCards { get; set; }
+
+        /// <summary>
+        /// Возвращает или задает связи с электронными кошельками
+        /// </summary>
+        public virtual ICollection<EWallet> EWallets { get; set; }
+
+        /// <summary>
+        /// Возвращает или задает связи с денежными потоками
+        /// </summary>
+        public virtual ICollection<CashFlow> CashFlows { get; set; }
+        
     }
 }
