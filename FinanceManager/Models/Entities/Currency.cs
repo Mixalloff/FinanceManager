@@ -12,6 +12,11 @@ namespace FinanceManager.Models.Entities
     /// </summary>
     public class Currency
     {
+        public Currency()
+        {
+            Users = new List<User>();
+        }
+
         /// <summary>
         /// Возвращает или задает идентификатор валюты
         /// </summary>
@@ -32,5 +37,7 @@ namespace FinanceManager.Models.Entities
         /// Возвращает или задает котировку валюты в долларах
         /// </summary>
         public double Quote { get; set; }
+
+        public virtual ICollection<User> Users{ get; set; }
     }
 }

@@ -14,23 +14,30 @@ namespace FinanceManager.Models.Repositories
     /// <typeparam name="T">Тип сущности</typeparam>
     public class AbstractRepository<T> where T : class, new()
     {
+        // Текущий контекст DB
+        protected FinanceManagerDb context;
+
+        public AbstractRepository(FinanceManagerDb context)
+        {
+            this.context = context;
+        }
+
         /// <summary>
         /// Возвращает все сущности класса T из БД
         /// </summary>
         /// <returns>Список сущностей</returns>
         public virtual IEnumerable<T> GetAll()
         {
-            using (var context = new FinanceManagerDb())
-            {
+            
                 return context.Set<T>().ToList();
-            }
+           
         }
 
         /// <summary>
         /// Сохраняет все изменения в БД
         /// </summary>
         /// <param name="context">Контекст БД</param>
-        public virtual void Save(FinanceManagerDb context)
+        public virtual void Save()
         {
             context.SaveChanges();
         }
@@ -42,10 +49,9 @@ namespace FinanceManager.Models.Repositories
         /// <returns>Найденная сущность</returns>
         public virtual T FindById(int id)
         {
-            using (var context = new FinanceManagerDb())
-            {
+            
                 return context.Set<T>().Find(id);
-            }
+            
         }
 
         /// <summary>
@@ -55,11 +61,10 @@ namespace FinanceManager.Models.Repositories
         /// <returns>Сущность, которая была добавлена в БД</returns>
         public virtual T Create(T entity)
         {
-            using (var context = new FinanceManagerDb())
-            {
+            
                 context.Entry(entity).State = EntityState.Added;
-                this.Save(context);
-            }
+                this.Save();
+            
 
             return entity;
         }
@@ -70,11 +75,10 @@ namespace FinanceManager.Models.Repositories
         /// <param name="entity">Удаляемая сущность</param>
         public virtual void Delete(T entity)
         {
-            using (var context = new FinanceManagerDb())
-            {
+           
                 context.Entry(entity).State = EntityState.Deleted;
-                this.Save(context);
-            }
+                this.Save();
+            
         }
 
         /// <summary>
@@ -83,11 +87,10 @@ namespace FinanceManager.Models.Repositories
         /// <param name="entity">Обновляемая сущность</param>
         public virtual void Update(T entity)
         {
-            using (var context = new FinanceManagerDb())
-            {
+           
                 context.Set<T>().AddOrUpdate(entity);
-                this.Save(context);
-            }
+                this.Save();
+            
         }
     }
 }

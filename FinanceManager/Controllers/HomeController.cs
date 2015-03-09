@@ -12,15 +12,15 @@ namespace FinanceManager.Controllers
     public class HomeController : Controller
     {       
         // Создаем контекст данных
-        FinanceManagerDb db = new FinanceManagerDb();
+      //  FinanceManagerDb db = new FinanceManagerDb();
 
         //
         // GET: /Home/
         public ActionResult Index()
         {
-            //AbstractRepository<User> users = new AbstractRepository<User>();
-            //users.Create(new User { Login = "mixalloff", Password = "111", Name = "Михаил", Surname = "Михалев" });
-            //users.Save(db);
+            //AbstractRepository<User> users = new AbstractRepository<User>(db);
+            //users.Create(new User { Login = "mixalloff1", Password = "111", Name = "Михаил", Surname = "Михалев" });
+            //users.Save();
 
             return View();
         }
