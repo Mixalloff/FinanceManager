@@ -44,7 +44,7 @@
 			<input id="login" class="login" ng-model="signIn.userLogin" required type="text" placeholder="E-mail или логин">
 			<label for="password">Пароль:</label>
 			<input id="password" class="password" ng-model="signIn.userPassword" required type="password" placeholder="Пароль">
-            <div class="info animated fadeInRight" ng-show="InfoView">{{infoText}}</div>
+            <div class="info animated fadeInRight" ng-style="InfoStyle" ng-show="InfoView">{{infoText}}</div>
             <button type="submit" class="signInBtn buttons" ng-click="TrySignIn(signIn, SignInForm)">Войти</button>
 			<button name="registerWindow" class="registerBtn buttons" ng-click="OpenRegisterForm()">Регистрация</button>
 		</form>

@@ -30,16 +30,14 @@ moduleApp.controller("SignInController", function ($scope, $http) {
 
     // Вывод ошибки при авторизации
     function ErrorLoginOrPassword(text) {
-        $(".info").css("background-color", "#FCD4E2");
-        $(".info").css("border-left", "#D52C2C solid 6px");
+        $scope.InfoStyle = { "background-color": "#FCD4E2", "border-left": "#D52C2C solid 6px" };
         $scope.infoText = text;
         $scope.InfoView = true;
     }
     
     // Вывод сообщения об усешной авторизации
     function SuccessSignIn(text) {
-        $(".info").css("background-color", "#D4FCE2");
-        $(".info").css("border-left", "#63B67A solid 6px");
+        $scope.InfoStyle = { "background-color": "#D4FCE2", "border-left": "#63B67A solid 6px" };
         $scope.infoText = text;
         $scope.InfoView = true;       
        // setTimeout(function () { $scope.InfoView = false }, 5000);  
