@@ -20,36 +20,36 @@ $(document).ready(function () {
     });
 
     // Появление/скрытие меню при нажатии
-    $(".toogleMenu").click(function () {
-        menuToogle(".topMenu", "fadeInDown");
-    });
+    //$(".toogleMenu").click(function () {
+    //    menuToogle(".topMenu", "fadeInDown");
+    //});
 
-    // Появление меню авторизации при щелчке по кнопке
-    $(".hiddenSignIn").click(function () {
-        if ($(".signInBlock").is(":hidden")) {
-            $(".signInBlock").addClass("fadeInRight animated");
-        }
+    //// Появление меню авторизации при щелчке по кнопке
+    //$(".hiddenSignIn").click(function () {
+    //    if ($(".signInBlock").is(":hidden")) {
+    //        $(".signInBlock").addClass("fadeInRight animated");
+    //    }
 
-        $(".signInBlock").fadeToggle(600);
-        $(".hiddenSignIn").fadeToggle(600);
+    //    $(".signInBlock").fadeToggle(600);
+    //    $(".hiddenSignIn").fadeToggle(600);
 
-    });
+    //});
 
-    // Закрытие окна авторизации при щелчке по свободной зоне
-    $(document).click(function (event) {
-        if ($(event.target).closest(".hiddenSignIn").length) return;
-        if ($(".signInBlock").is(":visible")) {
-            $(".signInBlock").removeClass("fadeInRight animated");
-            $(".signInBlock").fadeToggle(600);
-            $(".hiddenSignIn").fadeToggle(600);
-        }
-    });
+    //// Закрытие окна авторизации при щелчке по свободной зоне
+    //$(document).click(function (event) {
+    //    if ($(event.target).closest(".hiddenSignIn").length) return;
+    //    if ($(".signInBlock").is(":visible")) {
+    //        $(".signInBlock").removeClass("fadeInRight animated");
+    //        $(".signInBlock").fadeToggle(600);
+    //        $(".hiddenSignIn").fadeToggle(600);
+    //    }
+    //});
 
-    // Останавливает вызов события к родительским элементам при щелчке
-    // по окну авторизации (чтобы оно не закрывалось)
-    $(".signInBlock").click(function (e) {
-        e.stopPropagation();
-    });
+    //// Останавливает вызов события к родительским элементам при щелчке
+    //// по окну авторизации (чтобы оно не закрывалось)
+    //$(".signInBlock").click(function (e) {
+    //    e.stopPropagation();
+    //});
 
 
     // Анимация появления/скрытия меню после нажатия ссылки
@@ -72,10 +72,6 @@ $(document).ready(function () {
     $(".animationRight").animated("fadeInRight", "fadeOutLeft");
     $(".animationImg").animated("zoomIn", "zoomOut");
 
-
-    // Попап при клике на элемент
-    $(".popup").magnificPopup({ type: "image" });
-
 });
 
 // Определение высоты элемента по высоте экрана
@@ -85,11 +81,6 @@ function heightDetect(elementClass) {
 
 // Появление/скрытие меню 
 function menuToogle(animatedElement, animatedEffect) {
-    if ($(animatedElement).is(":hidden")) {
-        $(animatedElement).addClass(animatedEffect + " animated");
-    }
-    else {
-        $(animatedElement).removeClass(animatedEffect + " animated");
-    }
+    $(animatedElement).toggleClass(animatedEffect + " animated");
     $(animatedElement).fadeToggle(600);
 }

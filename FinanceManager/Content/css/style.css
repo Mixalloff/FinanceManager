@@ -285,7 +285,7 @@ background-color: rgba(0,0,0,.3);
 }
 
 .signInBlock{
-	display: none;
+	/*display: none;*/
 	cursor: default;
 	padding-top: 20px;
 	position: absolute;
@@ -384,6 +384,16 @@ background-color: rgba(0,0,0,.3);
     background-color: red;
 }
 /*...........*/
+
+/*input:valid, input:in-range
+{
+    background-color: #0f0;
+}
+
+input:invalid, input:out-of-range
+{
+    background-color: #f00;
+}*/
 
 .registerForm{
 	box-shadow: rgba(0, 0, 0, .6) 0 0 0 1000px;

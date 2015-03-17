@@ -162,14 +162,16 @@
     <Content Include="Content\Images\loader.gif" />
     <Content Include="Content\js\angular.min.js" />
     <Content Include="Content\js\animate-css.js" />
+    <Content Include="Content\js\Controllers\CommonController.js" />
     <Content Include="Content\js\functions.js" />
     <Content Include="Content\js\jquery.js" />
     <Content Include="Content\js\jquery.magnific-popup.min.js" />
+    <Content Include="Content\js\Modules\modules.js" />
     <Content Include="Content\js\parallax.js" />
     <Content Include="Content\js\parallax.min.js" />
     <Content Include="Content\js\waypoints.min.js" />
     <Content Include="Global.asax" />
-    <Content Include="SignIn\SignIn.js" />
+    <Content Include="Content\js\Controllers\SignIn.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

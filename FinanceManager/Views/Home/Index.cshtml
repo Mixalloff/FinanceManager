@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="ru" ng-app="SignIn" ng-controller="SignInController">
+<html lang="ru" ng-app="CommonModule" ng-controller="CommonController">
 <head>
 	<link rel="stylesheet" href="~/Content/css/style.css">
 	<link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="~/Content/css/font-awesome.min.css">
 	<link rel="stylesheet" href="~/Content/css/magnific-popup.css">
 
+    <script type="text/javascript" src="~/Content/js/Modules/modules.js"></script>
 	<script type="text/javascript" src="~/Content/js/jquery.js"></script>
 	<script type="text/javascript" src="~/Content/js/functions.js"></script>
 	<script type="text/javascript" src="~/Content/js/parallax.js"></script>
@@ -15,20 +16,22 @@
 	<script type="text/javascript" src="~/Content/js/waypoints.min.js"></script>
 	<script type="text/javascript" src="~/Content/js/jquery.magnific-popup.min.js"></script>
     <script type="text/javascript" src="~/Content/js/angular.min.js"></script>
-    <script type="text/javascript" src="~/SignIn/SignIn.js"></script>
+    <script type="text/javascript" src="~/Content/js/Controllers/SignIn.js"></script>
+    <script type="text/javascript" src="~/Content/js/Controllers/CommonController.js"></script>  
+    <script type="text/javascript" src="~/Content/js/route.js"></script>
 
 	<meta charset="UTF-8">
 	<title>Finance Manager</title>
 </head>
 
-<body style="margin: 0">
+<body style="margin: 0" ng-controller="SignInController" ng-click="ClickNotSignInForm($event)">
 
 	<div class="loader">
 		<div class="loaderInner"></div>
 	</div>
 
 	<header>
-		<div class="toogleMenu headCircleBtn">
+		<div class="toogleMenu headCircleBtn" ng-click="mainMenuToogle('.topMenu', 'fadeInDown')">
 			<div class='sandwich'>
 				<div class='sw-topper'></div>
 				<div class='sw-bottom'></div>
@@ -36,10 +39,10 @@
 			</div>
 		</div>
 
-		<div class="hiddenSignIn headCircleBtn">
+		<div class="hiddenSignIn headCircleBtn" ng-hide="WindowSignInView" ng-click="OpenSignInForm()">
 			<i class="fa fa-bank"></i>
 		</div>
-		<form class="signInBlock" name="SignInForm">
+		<form class="signInBlock fadeInRight animated" name="SignInForm" ng-if="WindowSignInView" novalidate>
 			<label for="login">Логин или e-mail:</label>
 			<input id="login" class="login" ng-model="signIn.userLogin" required type="text" placeholder="E-mail или логин">
 			<label for="password">Пароль:</label>
@@ -49,7 +52,7 @@
 			<button name="registerWindow" class="registerBtn buttons" ng-click="OpenRegisterForm()">Регистрация</button>
 		</form>
 
-        <form class="registerForm" name="RegisterForm" ng-if="WindowRegView">
+        <form class="registerForm" name="RegisterForm" ng-if="WindowRegView" novalidate>
             <i class="closeBtn fa fa-close" ng-click="CloseRegisterForm()"></i>
 			<h1>Регистрация</h1>
 			<div>
@@ -143,7 +146,7 @@
 
 				<div class="col-md-4 col-md-push-4 animationImg">
 					<div class="imgAbout">
-						<a class="popup" href="~/Content/Images/imgAbout.png">
+						<a href="~/Content/Images/imgAbout.png">
 							<img src="~/Content/Images/imgAbout.png" alt="">
 						</a>
 					</div>
