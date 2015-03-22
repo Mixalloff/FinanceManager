@@ -48,3 +48,8 @@ C:\Documents\Visual Studio 2012\Project\FinanceManager\FinanceManager\bin\System
 C:\Documents\Visual Studio 2012\Project\FinanceManager\FinanceManager\obj\Debug\FinanceManager.csprojResolveAssemblyReference.cache
 C:\Documents\Visual Studio 2012\Project\FinanceManager\FinanceManager\obj\Debug\FinanceManager.dll
 C:\Documents\Visual Studio 2012\Project\FinanceManager\FinanceManager\obj\Debug\FinanceManager.pdb
+C:\Documents\Visual Studio 2012\Project\FinanceManager\FinanceManager\bin\Antlr3.Runtime.dll
+C:\Documents\Visual Studio 2012\Project\FinanceManager\FinanceManager\bin\System.Web.Optimization.dll
+C:\Documents\Visual Studio 2012\Project\FinanceManager\FinanceManager\bin\WebGrease.dll
+C:\Documents\Visual Studio 2012\Project\FinanceManager\FinanceManager\bin\Antlr3.Runtime.pdb
+C:\Documents\Visual Studio 2012\Project\FinanceManager\FinanceManager\bin\System.Web.Optimization.xml

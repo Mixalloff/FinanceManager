@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="ru" ng-app="CommonModule" ng-controller="CommonController">
+<head>
+    @System.Web.Optimization.Scripts.Render("~/bundles/js")
+    @System.Web.Optimization.Styles.Render("~/bundles/css")
+<link rel="stylesheet" href="~/Content/css/personalPageStyles.css">
+	<meta charset="UTF-8">
+	<title>Finance Manager</title>
+</head>
+
+<body style="margin: 0" ng-cloak>
+	<header>
+		<div class="menu">
+			<div class="menuItem">
+				<i class="fa fa-home"></i>
+			</div>
+			<div class="menuItem">
+				<i class="fa fa-pie-chart"></i>
+			</div>
+			<div class="menuItem">
+				<i class="fa fa-tasks"></i>
+			</div>
+		</div>
+		
+		<div class="profile">
+			<a href="#" class="profileImgContainer">
+				<img src="~/Resources/UsersFiles/mixalloff/images/1.jpg" alt="" class="profileImg">
+			</a>
+			<div class="profileName">Михалев Михаил</div>
+			<div class="profileBalance">
+				<i class="fa fa-bank"></i>
+				<div class="balanceView">Баланс: 5380 руб.</div>
+			</div>
+			<div class="logout">
+				<i class="fa fa-sign-out"></i>
+				<a href="#">Выйти</a>
+			</div>
+			
+		</div>	
+						
+	</header>
+    <section class="headSection sectionTop">
+    	
+
+    	<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-md-push-3">
+					<div class="mainCatalogsBlock">
+						<div class="catalogs">
+							<span class="labelCatalog">Доходы</span>
+							<img class="catalogInnerImg" src="~/Content/Images/imgAbout.png" alt="">
+							<!-- <div class="catalogInner"></div> -->
+						</div>
+						<div class="catalogs">
+							<span class="labelCatalog">Расходы</span>
+							<img class="catalogInnerImg" src="~/Content/Images/costs.jpg" alt="">
+						</div>
+						<div class="catalogs">
+							<span class="labelCatalog">Счета</span>
+							<img class="catalogInnerImg" src="~/Content/Images/accounts.jpg" alt="">
+						</div>
+						<div class="catalogs">
+							<span class="labelCatalog">Планы</span>
+							<img class="catalogInnerImg" src="~/Content/Images/plains.jpg" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </section>
+</body>
+
+</html>

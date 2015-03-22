@@ -3,54 +3,40 @@ $(window).load(function () {
     setTimeout(10000);
     $(".loaderInner").fadeOut();
     $(".loader").delay(400).fadeOut("slow");
+
+    // Квадратные блоки
+    $(".catalogs").css("height", $(".catalogs").css("width"));
+    
+    // Выравнивание изображения профиля по центру
+    if ($(".profileImg").width() < $(".profileImg").height()) {
+        $(".profileImg").width($(".profileImgContainer").width());
+        $(".profileImg").css("margin-top", -($(".profileImg").height() - $(".profileImgContainer").height()) / 2);
+    }
+    else {
+        $(".profileImg").height($(".profileImgContainer").height());
+        $(".profileImg").css("margin-left", -($(".profileImg").width() - $(".profileImgContainer").width()) / 2);
+    }
+
 });
 
 $(document).ready(function () {
     // Определение высоты секций
-    heightDetect("section");
+    heightDetect(".headSection");
 
     // Определение высоты секций при изменении размера окна
     $(window).resize(function () {
-        heightDetect(".section");
+        heightDetect(".headSection");
     });
+
+    //else {
+    //    $(".profileImg").css("width", $(".profileImg").height() / $(".profileImgContainer").height());
+    //    $(".profileImg").css("height", $(".profileImgContainer").height());
+    //}
 
     // Анимация кнопки меню при нажатии
     $(".toogleMenu").click(function () {
         $(".sandwich").toggleClass("active");
     });
-
-    // Появление/скрытие меню при нажатии
-    //$(".toogleMenu").click(function () {
-    //    menuToogle(".topMenu", "fadeInDown");
-    //});
-
-    //// Появление меню авторизации при щелчке по кнопке
-    //$(".hiddenSignIn").click(function () {
-    //    if ($(".signInBlock").is(":hidden")) {
-    //        $(".signInBlock").addClass("fadeInRight animated");
-    //    }
-
-    //    $(".signInBlock").fadeToggle(600);
-    //    $(".hiddenSignIn").fadeToggle(600);
-
-    //});
-
-    //// Закрытие окна авторизации при щелчке по свободной зоне
-    //$(document).click(function (event) {
-    //    if ($(event.target).closest(".hiddenSignIn").length) return;
-    //    if ($(".signInBlock").is(":visible")) {
-    //        $(".signInBlock").removeClass("fadeInRight animated");
-    //        $(".signInBlock").fadeToggle(600);
-    //        $(".hiddenSignIn").fadeToggle(600);
-    //    }
-    //});
-
-    //// Останавливает вызов события к родительским элементам при щелчке
-    //// по окну авторизации (чтобы оно не закрывалось)
-    //$(".signInBlock").click(function (e) {
-    //    e.stopPropagation();
-    //});
-
 
     // Анимация появления/скрытия меню после нажатия ссылки
     $(".topMenu a").click(function () {
@@ -59,11 +45,6 @@ $(document).ready(function () {
         $(".topMenu").fadeOut(400);
         $(".topMenu").removeClass("fadeOutUp animated");
     });
-
-    //$("button[name='registerWindow']").click(function () {
-    //    $(".registerForm").fadeToggle(600);
-    //});
-    
 
     // Анимация при скролле до элемента
     $(".projectName").animated("fadeInDown", "fadeOutUp");

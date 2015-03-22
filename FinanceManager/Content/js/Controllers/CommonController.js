@@ -1,5 +1,36 @@
 var moduleApp = angular.module('CommonModule', []);
 
+moduleApp.directive('squareElem', function () {
+    //return{
+    //    restrict: 'A',
+    //    postlink: function (scope, element, attrs) {
+    //        //element.css("height", element.css("width"));
+    //        $(element).css("height", $(element).css("width"));
+    //    }
+    //}
+    return function (scope, element, attrs) {
+                //element.css("height", element.css("width"));
+        //  $(element).css("height", $(element).css("width"));
+
+
+        //var width;
+
+        //function updateSize() {
+        //    $(element).css("height", width);
+        //}
+
+        //scope.$watch(attrs.squareElem, function () {
+        //    width = $(element).css("width");
+        //    updateSize();
+        //});
+
+        $scope.load = function () {
+            $(element).css("height", $(element).css("width"));
+        }
+
+            }
+});
+
 // Общий контроллер
 moduleApp.controller("CommonController", function ($scope, $http) {
 
@@ -8,6 +39,16 @@ moduleApp.controller("CommonController", function ($scope, $http) {
         $(animatedElement).fadeToggle(600);
     }
 
+    $scope.text = "Hello!";
+
+});
+
+moduleApp.controller("PersonalPageController", function ($scope, $http) {
+
+    //function SquareElem(elemSelector, knownMeasurement, unknownMeasurement) {
+    //    var elem = angular.element(document.querySelector(elemSelector));
+    //    elem.css(unknownMeasurement, elem.css(knownMeasurement));
+    //}
 });
 
 // Контроллер авторизации
@@ -34,25 +75,27 @@ moduleApp.controller("SignInController", function ($scope, $http) {
                     SuccessSignIn("Авторизация успешно пройдена!");
                 }
                 else {
-                    ErrorLoginOrPassword("Ошибка! Неверный логин и/или пароль!");
+                    ErrorInfo("Ошибка! Неверный логин и/или пароль!");
                 }
             }).error(function (response) {
-                alert("Error: " + response);
+                //alert("Error: " + response);
+                ErrorInfo("Ошибка сервера!");
             });
         }
         else {
-            ErrorLoginOrPassword("Заполните все поля!");
+            ErrorInfo("Заполните все поля!");
         }
     }
 
     // Окраска валидных и невалидных полей соответствующим цветом
     function ValidateInputPaint(formClass) {
         $(formClass + " input:invalid").css("background-color", "#FCD4E2");
-        $(formClass + " input:valid").css("background-color", "#D4FCE2");
+        $(formClass + " input:valid").css("background-color", "#fff");
+       // $(formClass + " input:valid").css("background-color", "#D4FCE2");
     }
 
     // Вывод ошибки при авторизации
-    function ErrorLoginOrPassword(text) {
+    function ErrorInfo(text) {
         $scope.InfoStyle = { "background-color": "#FCD4E2", "border-left": "#D52C2C solid 6px" };
         $scope.infoText = text;
         $scope.InfoView = true;
@@ -68,6 +111,7 @@ moduleApp.controller("SignInController", function ($scope, $http) {
 
     // Открытие формы авторизации
     $scope.OpenSignInForm = function () {
+        $scope.InfoView = false;
         $scope.WindowSignInView = true;
     }
 

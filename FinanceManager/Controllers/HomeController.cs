@@ -25,5 +25,10 @@ namespace FinanceManager.Controllers
             return View();
         }
 
+        public ActionResult PersonalPage()
+        {
+            return View();
+        }
+
     }
 }
