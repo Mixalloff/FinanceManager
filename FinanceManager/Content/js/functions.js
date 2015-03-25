@@ -5,7 +5,7 @@ $(window).load(function () {
     $(".loader").delay(400).fadeOut("slow");
 
     // Квадратные блоки
-    $(".catalogs").css("height", $(".catalogs").css("width"));
+  //  $(".catalogs").css("height", $(".catalogs").css("width"));
     
     // Выравнивание изображения профиля по центру
     if ($(".profileImg").width() < $(".profileImg").height()) {

@@ -172,9 +172,12 @@
     <Content Include="Content\Images\headSection.jpg" />
     <Content Include="Content\Images\imgAbout.png" />
     <Content Include="Content\Images\loader.gif" />
+    <Content Include="Content\js\angular-animate.js" />
+    <Content Include="Content\js\angular-route.js" />
     <Content Include="Content\js\angular.min.js" />
     <Content Include="Content\js\animate-css.js" />
     <Content Include="Content\js\Controllers\CommonController.js" />
+    <Content Include="Content\js\Controllers\PersonalPageController.js" />
     <Content Include="Content\js\functions.js" />
     <Content Include="Content\js\jquery.js" />
     <Content Include="Content\js\jquery.magnific-popup.min.js" />
@@ -182,8 +185,9 @@
     <Content Include="Content\js\parallax.js" />
     <Content Include="Content\js\parallax.min.js" />
     <Content Include="Content\js\waypoints.min.js" />
+    <Content Include="Content\Templates\mainPersonalPage.html" />
     <Content Include="Global.asax" />
-    <Content Include="Content\js\Controllers\SignIn.js" />
+    <Content Include="Content\js\Controllers\SignInController.js" />
     <Content Include="Resources\UsersFiles\mixalloff\images\1.jpeg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

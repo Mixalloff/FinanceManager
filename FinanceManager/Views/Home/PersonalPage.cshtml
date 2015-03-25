@@ -1,23 +1,25 @@
 ﻿<!DOCTYPE html>
-<html lang="ru" ng-app="CommonModule" ng-controller="CommonController">
+<html lang="ru" ng-app="PersonalModule" ng-controller="PersonalPageController">
 <head>
+     
     @System.Web.Optimization.Scripts.Render("~/bundles/js")
     @System.Web.Optimization.Styles.Render("~/bundles/css")
 <link rel="stylesheet" href="~/Content/css/personalPageStyles.css">
+
 	<meta charset="UTF-8">
 	<title>Finance Manager</title>
 </head>
 
-<body style="margin: 0" ng-cloak>
+<body style="margin: 0">
 	<header>
 		<div class="menu">
-			<div class="menuItem">
+			<div class="menuItem" ng-click="goToStart()">
 				<i class="fa fa-home"></i>
 			</div>
 			<div class="menuItem">
 				<i class="fa fa-pie-chart"></i>
 			</div>
-			<div class="menuItem">
+			<div class="menuItem" ng-click="goToOperations()">
 				<i class="fa fa-tasks"></i>
 			</div>
 		</div>
@@ -39,34 +41,8 @@
 		</div>	
 						
 	</header>
-    <section class="headSection sectionTop">
-    	
-
-    	<div class="container">
-			<div class="row">
-				<div class="col-md-6 col-md-push-3">
-					<div class="mainCatalogsBlock">
-						<div class="catalogs">
-							<span class="labelCatalog">Доходы</span>
-							<img class="catalogInnerImg" src="~/Content/Images/imgAbout.png" alt="">
-							<!-- <div class="catalogInner"></div> -->
-						</div>
-						<div class="catalogs">
-							<span class="labelCatalog">Расходы</span>
-							<img class="catalogInnerImg" src="~/Content/Images/costs.jpg" alt="">
-						</div>
-						<div class="catalogs">
-							<span class="labelCatalog">Счета</span>
-							<img class="catalogInnerImg" src="~/Content/Images/accounts.jpg" alt="">
-						</div>
-						<div class="catalogs">
-							<span class="labelCatalog">Планы</span>
-							<img class="catalogInnerImg" src="~/Content/Images/plains.jpg" alt="">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+    <section class="headSection sectionTop">   	
+        <ng-view></ng-view>
     </section>
 </body>
 

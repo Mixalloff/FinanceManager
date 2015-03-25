@@ -1,0 +1,26 @@
+<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-push-2">
+					<div class="operationsBlock">
+						<p>Операции пользователя</p>
+
+						<div class="operationHead">
+								<div class="operationName">Наименование</div>
+								<div class="operationAccount">Счет</div>
+								<div class="operationGroup">Группа</div>
+								<div class="operationPrice">Стоимость</div>
+								<div class="operationDate">Дата</div>
+							</div>						
+						<div class="operationsContainer">
+							<div ng-class="{true:'income operation', false:'cost operation'}[current.type==1]" ng-repeat="current in operations">
+								<div class="operationName">{{current.name}}</div>
+								<div class="operationAccount">{{current.account}}</div>
+								<div class="operationGroup">{{current.group}}</div>
+								<div class="operationPrice">{{current.price}}</div>
+								<div class="operationDate">{{current.date}}</div>
+							</div>			
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
