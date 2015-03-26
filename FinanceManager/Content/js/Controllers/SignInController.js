@@ -18,13 +18,13 @@ moduleApp.controller("SignInController", function ($scope, $http, $location) {
         if (signInForm.$valid) {
             $http.post('/Authorization/SignIn', {
                 login: signIn.userLogin,
-                password: signIn.userPassword,
+                password: hex_md5(signIn.userPassword),
             }).success(function (response) {
                 if (response.IsAuthenticated) {
                     SuccessSignIn("Авторизация успешно пройдена!");
 
                     // Redirect to personal page
-                    document.location.href = '/Home/PersonalPage'                  
+                    document.location.href = '/PersonalPage'                  
                 }
                 else {
                     ErrorInfo("Ошибка! Неверный логин и/или пароль!");
@@ -104,7 +104,7 @@ moduleApp.controller("SignInController", function ($scope, $http, $location) {
                     country: registerData.newUserCountry,
                     town: registerData.newUserTown,
                     login: registerData.newUserLogin,
-                    password: registerData.newUserPassword,
+                    password: hex_md5(registerData.newUserPassword),
                     currency: registerData.newUserCurrency
                 }).success(function (response) {
                     if (response) {

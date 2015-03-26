@@ -39,6 +39,20 @@ namespace FinanceManager.Controllers
                         {
                             data.Roles.Add(role.Name);
                         }
+
+                        // Работа с куки
+                        Response.Cookies["VisitorName"].Value = user.Name;
+                        Response.Cookies["VisitorSurname"].Value = user.Surname;
+                        Response.Cookies["CookieNameOfTicket"].Value = FormsAuthentication.FormsCookieName;
+
+                        DateTime expiration = DateTime.Now.AddHours(1);
+                        var ticket = new FormsAuthenticationTicket(1, user.Login, DateTime.Now, expiration, true, string.Empty, FormsAuthentication.FormsCookiePath);
+                        var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(ticket))
+                        {
+                            Expires = expiration
+                        };
+                        System.Web.HttpContext.Current.Response.Cookies.Add(cookie);
+
                         return this.Json(data);
                     }
                 }

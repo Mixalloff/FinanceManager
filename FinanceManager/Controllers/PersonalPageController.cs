@@ -1,5 +1,4 @@
 ﻿using FinanceManager.Models;
-using FinanceManager.Models.Entities;
 using FinanceManager.Models.Repositories;
 using System;
 using System.Collections.Generic;
@@ -10,19 +9,13 @@ using System.Web.Security;
 
 namespace FinanceManager.Controllers
 {
-    public class HomeController : Controller
-    {       
-        // Создаем контекст данных
-        FinanceManagerDb db = new FinanceManagerDb();
-
+    public class PersonalPageController : Controller
+    {
         //
-        // GET: /Home/
+        // GET: /PersonalPage/
+
         public ActionResult Index()
         {
-            //AbstractRepository<User> users = new AbstractRepository<User>(db);
-            //users.Create(new User { Login = "mixalloff1", Password = "111", Name = "Михаил", Surname = "Михалев" });
-            //users.Save();
-
             HttpCookie cookieReq = Request.Cookies[FormsAuthentication.FormsCookieName];
             string cookie = cookieReq != null ? cookieReq.Value : string.Empty;
             if (cookie != string.Empty)
@@ -30,12 +23,11 @@ namespace FinanceManager.Controllers
                 string login = FormsAuthentication.Decrypt(cookie).Name;
                 if (new UserRepository(new FinanceManagerDb()).GetAll().FirstOrDefault(x => x.Login == login) != null)
                 {
-                    Response.Redirect("/PersonalPage");
-                    return null;
+                    return View();
                 }
             }
-            return View();
+            Response.Redirect("/");
+            return null;
         }
-
     }
 }

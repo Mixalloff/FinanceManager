@@ -26,14 +26,14 @@
 		
 		<div class="profile">
 			<a href="#" class="profileImgContainer">
-				<img src="~/Resources/UsersFiles/mixalloff/images/1.jpg" alt="" class="profileImg">
+				<img ng-src={{profileImgSrc}} alt="" class="profileImg">
 			</a>
-			<div class="profileName">Михалев Михаил</div>
+			<div class="profileName">{{name + " " + surname}}</div>
 			<div class="profileBalance">
 				<i class="fa fa-bank"></i>
-				<div class="balanceView">Баланс: 5380 руб.</div>
+				<div class="balanceView">Баланс: {{balance}} руб.</div>
 			</div>
-			<div class="logout">
+			<div class="logout"  ng-click="logout()">
 				<i class="fa fa-sign-out"></i>
 				<a href="#">Выйти</a>
 			</div>

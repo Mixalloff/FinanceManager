@@ -11,11 +11,11 @@ var personalModuleApp = angular.module('PersonalModule', ['ngRoute'])
         requireBase: false
     });
 
-    $routeProvider.when('/Home/PersonalPage', { //Шаблон авторизированного входа
+    $routeProvider.when('/PersonalPage', { //Шаблон авторизированного входа
         templateUrl: '/Content/Templates/mainPersonalPage.html',
         controller: 'personalStartController'
     })
-    .when('/Home/personalOperations', { //Шаблон авторизированного входа
+    .when('/personalOperations', { //Шаблон авторизированного входа
         templateUrl: '/Content/Templates/personalOperations.html',
         controller: 'personalOperationsController'
     })
@@ -27,16 +27,45 @@ var personalModuleApp = angular.module('PersonalModule', ['ngRoute'])
 .controller("PersonalPageController", 
 function ($route, $routeParams, $location, $scope) {
     $scope.goToStart = function () {
-        $location.path('/Home/PersonalPage')
+        $location.path('/PersonalPage')
     }
 
     $scope.goToOperations = function () {
-        $location.path('/Home/personalOperations')
+        $location.path('/personalOperations')
     }
+
+    $scope.name = getCookie("VisitorName");
+    $scope.surname = getCookie("VisitorSurname");
+
+    // Тестовые данные-заглушки (будут подтягиваться из БД)
+    $scope.balance = 6800;
+    $scope.profileImgSrc = "/Resources/UsersFiles/mixalloff/images/1.jpg";
+
 
     $scope.squareElemLoad = function (element) {
         $(element).css("height", $(element).css("width"));
-    }  
+    }
+
+    $scope.logout = function () {
+        deleteCookie(getCookie("CookieNameOfTicket"));
+        deleteCookie("VisitorName");
+        deleteCookie("VisitorSurname");
+        deleteCookie("CookieNameOfTicket");
+        document.location.href = '/';
+    }
+
+    function deleteCookie(name) {
+        document.cookie = name += "=; expires=" + new Date(0).toGMTString();
+    }
+
+    function getCookie(name) {    
+        var matches = document.cookie.match(new RegExp(
+          "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)" 
+        ));
+        return matches ? decodeURIComponent(matches[1]) : undefined; 
+    }
+
+
 })
 .controller("personalStartController",
 function ($route, $routeParams, $location, $scope) {
