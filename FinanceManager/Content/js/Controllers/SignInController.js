@@ -24,7 +24,11 @@ moduleApp.controller("SignInController", function ($scope, $http, $location) {
                     SuccessSignIn("Авторизация успешно пройдена!");
 
                     // Redirect to personal page
-                    document.location.href = '/PersonalPage'                  
+                    setTimeout(
+                        function() {
+                            document.location.href = '/PersonalPage';
+                        }, 2000
+                    );        
                 }
                 else {
                     ErrorInfo("Ошибка! Неверный логин и/или пароль!");

@@ -30,8 +30,7 @@ namespace FinanceManager.Controllers
                 string login = FormsAuthentication.Decrypt(cookie).Name;
                 if (new UserRepository(new FinanceManagerDb()).GetAll().FirstOrDefault(x => x.Login == login) != null)
                 {
-                    Response.Redirect("/PersonalPage");
-                    return null;
+                    return Redirect("/PersonalPage"); ;
                 }
             }
             return View();

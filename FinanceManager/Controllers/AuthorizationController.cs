@@ -27,7 +27,6 @@ namespace FinanceManager.Controllers
         {
             foreach (var user in new UserRepository(new FinanceManagerDb()).GetAll())
             {
-               // LoginData data = new LoginData();
                 if (user.Login == login || user.Email == login)
                 {
                     if (user.Password == password)

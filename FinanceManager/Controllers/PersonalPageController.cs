@@ -26,8 +26,12 @@ namespace FinanceManager.Controllers
                     return View();
                 }
             }
-            Response.Redirect("/");
-            return null;
+            return Redirect("/");
+        }
+
+        public RedirectResult operations()
+        {
+            return Redirect("/PersonalPage");
         }
     }
 }

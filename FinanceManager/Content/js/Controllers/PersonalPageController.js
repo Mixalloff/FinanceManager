@@ -15,7 +15,7 @@ var personalModuleApp = angular.module('PersonalModule', ['ngRoute'])
         templateUrl: '/Content/Templates/mainPersonalPage.html',
         controller: 'personalStartController'
     })
-    .when('/personalOperations', { //Шаблон авторизированного входа
+    .when('/PersonalPage/operations', { //Шаблон авторизированного входа
         templateUrl: '/Content/Templates/personalOperations.html',
         controller: 'personalOperationsController'
     })
@@ -31,7 +31,7 @@ function ($route, $routeParams, $location, $scope) {
     }
 
     $scope.goToOperations = function () {
-        $location.path('/personalOperations')
+        $location.path('/PersonalPage/operations')
     }
 
     $scope.name = getCookie("VisitorName");
@@ -81,23 +81,3 @@ function ($route, $routeParams, $location, $scope) {
        { name: 'Сделал лабу пацанам', type: 1, account: 'Наличные', group: 'Подработка', price: '500 руб', date: '30.04.2014' }
     ];
 });
-
-//var app = angular.module("PersonalModule", ['ngRoute']);
-
-//app.config(function ($routeProvider) {
-//    $routeProvider.when("/Home/PersonalPage",
-//      {
-//          templateUrl: "/Content/Templates/mainPersonalPage.html",
-//          controller: "PersonalPageController"
-//      }
-//    )
-//    .otherwise({
-//        redirectTo: '/Home'
-//    });
-//});
-
-//app.controller("PersonalPageController", function ($scope) {
-//    $scope.model = {
-//        message: "This is my app!!!"
-//    }
-//});
