@@ -126,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="CommonClasses\FileWorker.cs" />
     <Compile Include="Controllers\AuthorizationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonalPageController.cs" />
@@ -186,10 +187,14 @@
     <Content Include="Content\js\Modules\modules.js" />
     <Content Include="Content\js\parallax.js" />
     <Content Include="Content\js\parallax.min.js" />
+    <Content Include="Content\js\url.min.js" />
     <Content Include="Content\js\waypoints.min.js" />
     <Content Include="Content\Templates\mainPersonalPage.html" />
+    <Content Include="Content\Templates\personalOperations.html" />
+    <Content Include="Content\Templates\RegisterForm.html" />
     <Content Include="Global.asax" />
     <Content Include="Content\js\Controllers\SignInController.js" />
+    <Content Include="Resources\BdScripts\rolesAndCurrences.sql" />
     <Content Include="Resources\UsersFiles\mixalloff\images\1.jpeg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -228,6 +233,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\PersonalPage\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\js\angular.min.js.map" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

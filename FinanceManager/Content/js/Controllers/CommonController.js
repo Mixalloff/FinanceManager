@@ -16,6 +16,8 @@ moduleApp.directive('squareElem', function () {
             $(element).css("height", $(element).css("width"));
         }
 
+
+
             }
 });
 
@@ -30,7 +32,6 @@ moduleApp.controller("CommonController", function ($scope, $http) {
     $scope.squareElemLoad = function (element) {
         $(element).css("height", $(element).css("width"));
     }
-
 });
 
 moduleApp.controller("PersonalPageController", function ($scope, $http) {

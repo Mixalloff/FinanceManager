@@ -1,10 +1,14 @@
-﻿using FinanceManager.Models;
+﻿using FinanceManager.CommonClasses;
+using FinanceManager.Models;
 using FinanceManager.Models.Authorization;
 using FinanceManager.Models.Entities;
 using FinanceManager.Models.Repositories;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -60,7 +64,7 @@ namespace FinanceManager.Controllers
         }
 
         [HttpPost]
-        public JsonResult Register(string name, string surname, string email, string country, string town, string login, string password, string currency)
+        public JsonResult Register(string name, string surname, string email, string country, string town, string login, string password, string currency, string photo)
         {
             using (FinanceManagerDb context = new FinanceManagerDb())
             {
@@ -79,14 +83,26 @@ namespace FinanceManager.Controllers
                     user.Roles.Add(new RoleRepository(context).FindByName("Админ"));
                     user.MainCurrency = new CurrencyRepository(context).FindByName(currency);
                     new CurrencyRepository(context).FindByName(currency).Users.Add(user);
-                    users.Create(user);
 
+                    if (photo != string.Empty)
+                    {
+                        MatchCollection matches = new Regex("data:image/(?<format>.*);base64,").Matches(photo);
+                        if (matches[0].Groups["format"].Success)
+                        {
+                            var imgFormat = matches[0].Groups["format"].Value;
+                            photo = photo.Substring(matches[0].Groups[0].Length);
+                            var base64str = System.Convert.FromBase64String(photo);
+                            user.Photo = FileWorker.SaveUserPhoto(base64str, imgFormat, login);
+                        }
+                    }
+
+                    users.Create(user);
                     return this.Json("Пользователь успешно добавлен!");
                 }
                 
                 else
                 {
-                    return this.Json(null);
+                    return this.Json("Данный Login или Email уже заняты!");
                 }
             }
         }

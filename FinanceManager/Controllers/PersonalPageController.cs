@@ -26,7 +26,7 @@ namespace FinanceManager.Controllers
                     return View();
                 }
             }
-            return Redirect("/");
+            return Redirect("/Home?isRedirect=true");
         }
 
         public RedirectResult operations()

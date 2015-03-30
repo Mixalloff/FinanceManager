@@ -385,16 +385,6 @@ background-color: rgba(0,0,0,.3);
 }
 /*...........*/
 
-/*input:valid, input:in-range
-{
-    background-color: #0f0;
-}
-
-input:invalid, input:out-of-range
-{
-    background-color: #f00;
-}*/
-
 .registerForm{
 	box-shadow: rgba(0, 0, 0, .6) 0 0 0 1000px;
 	width: 40%;
@@ -406,7 +396,7 @@ input:invalid, input:out-of-range
     border-radius: 10px;
 }
 
-.registerForm input {
+.regFormField{
 	width: 40%;
 }
 
@@ -429,7 +419,7 @@ input:invalid, input:out-of-range
 	background-color: #fff;
 }
 
-.registerForm label+input{
+ label+.regFormField{
 	display: inline-block;
 	margin: 10px 0;
 }

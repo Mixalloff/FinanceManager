@@ -9,7 +9,7 @@
 	<title>Finance Manager</title>
 </head>
 
-<body style="margin: 0" ng-controller="SignInController" ng-click="ClickNotSignInForm($event)">
+<body style="margin: 0" ng-controller="SignInController" ng-click="ClickNotSignInForm($event)"  ng-init="loadPage()">
 
 	<div class="loader">
 		<div class="loaderInner"></div>
@@ -27,78 +27,20 @@
 		<div class="hiddenSignIn headCircleBtn" ng-hide="WindowSignInView" ng-click="OpenSignInForm()">
 			<i class="fa fa-bank"></i>
 		</div>
-		<form class="signInBlock fadeInRight animated" name="SignInForm" ng-if="WindowSignInView" novalidate>
-			<label for="login">Логин или e-mail:</label>
-			<input id="login" class="login" ng-model="signIn.userLogin" required type="text" placeholder="E-mail или логин">
-			<label for="password">Пароль:</label>
-			<input id="password" class="password" ng-model="signIn.userPassword" required type="password" placeholder="Пароль">
-            <div class="info animated fadeInRight" ng-style="InfoStyle" ng-show="InfoView">{{infoText}}</div>
-            <button type="submit" class="signInBtn buttons" ng-click="TrySignIn(signIn, SignInForm)">Войти</button>
-			<button name="registerWindow" class="registerBtn buttons" ng-click="OpenRegisterForm()">Регистрация</button>
-		</form>
-
-        <form class="registerForm" name="RegisterForm" ng-if="WindowRegView" novalidate>
-            <i class="closeBtn fa fa-close" ng-click="CloseRegisterForm()"></i>
-			<h1>Регистрация</h1>
-			<div>
-				<label for="newName">Имя: <strong>*</strong></label>
-				<input ng-model="registerData.newUserName" required id="newName" type="text" placeholder="Имя"><br/>
-			</div>
-
-			<div>
-				<label for="newSurname">Фамилия: <strong>*</strong></label>
-				<input ng-model="registerData.newUserSurname" required id="newSurname" type="text" placeholder="Фамилия"><br/>
-			</div>
-
-			<div>
-				<label for="newEmail">E-mail: <strong>*</strong></label>
-				<input ng-model="registerData.newUserEmail" required id="newEmail" type="email" placeholder="E-mail"><br/>
-			</div>
-
-			<div>
-				<label for="newCountry">Страна:</label>
-				<input ng-model="registerData.newUserCountry" id="newCountry" type="text" placeholder="Страна"><br/>
-			</div>
-
-			<div>
-				<label for="newTown">Город:</label>
-				<input ng-model="registerData.newUserTown" id="newTown" type="text" placeholder="Город"><br/>
-			</div>
-
-			<div>
-				<label for="newLogin">Логин: <strong>*</strong></label>
-				<input ng-model="registerData.newUserLogin" required id="newLogin" type="text" placeholder="Логин"><br/>
-			</div>
-
-			<div>
-				<label for="newPassword">Пароль: <strong>*</strong></label>
-				<input ng-model="registerData.newUserPassword" required id="newPassword" type="password" placeholder="Пароль"><br/>
-			</div>
-
-			<div>
-				<label for="newPasswordReplay">Повторите пароль: <strong>*</strong></label>
-				<input ng-model="registerData.newUserPasswordReplay" required id="newPasswordReplay" type="password" placeholder="Повторите пароль"><br/>
-			</div>
-
-            <div>
-				<label for="newCurrency">Основная валюта:</label>
-				<input ng-model="registerData.newUserCurrency" id="newCurrency" required type="text" placeholder="Основная валюта"><br/>
-			</div>
-
-            <p>* помечены обязательные для заполнения поля</p>
-			<button type="submit" ng-click="TryRegister(registerData, RegisterForm)" class="registerBtn buttons">Зарегистрироваться</button>
-		</form>
+		
+        <ng-include ng-if="WindowSignInView" src="'/Content/Templates/SignInForm.html'"></ng-include>
+        <ng-include ng-if="WindowRegView" src="'/Content/Templates/RegisterForm.html'"></ng-include>
 		
 	</header>
 
 	<div class="topMenu">
-			<ul>
-				<li><a class="menuItem" href="#headId">Начало работы</a></li>
-				<li><a  class="menuItem" href="#aboutId">О проекте</a></li>
-				<li><a  class="menuItem" href="#tariffId">Тарифы</a></li>
-				<li><a  class="menuItem" href="#contactsId">Контакты</a></li>		
-			</ul>
-		</div>
+		<ul>
+			<li><a class="menuItem" href="#headId">Начало работы</a></li>
+			<li><a  class="menuItem" href="#aboutId">О проекте</a></li>
+			<li><a  class="menuItem" href="#tariffId">Тарифы</a></li>
+			<li><a  class="menuItem" href="#contactsId">Контакты</a></li>		
+		</ul>
+	</div>
 
 	<section id="headId" class="headSection parallax-window" data-parallax="scroll" data-image-src="Content/Images/headSection.jpg">
 
@@ -131,9 +73,7 @@
 
 				<div class="col-md-4 col-md-push-4 animationImg">
 					<div class="imgAbout">
-						<a href="~/Content/Images/imgAbout.png">
-							<img src="~/Content/Images/imgAbout.png" alt="">
-						</a>
+						<img src="~/Content/Images/imgAbout.png" alt="">
 					</div>
 				</div>
 

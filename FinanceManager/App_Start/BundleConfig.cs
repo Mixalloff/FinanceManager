@@ -17,6 +17,7 @@ namespace FinanceManager.App_Start
                         "~/Content/js/angular-animate.js",
                         "~/Content/js/functions.js",
                         "~/Content/js/md5.js",
+                        "~/Content/js/url.min.js",
                         "~/Content/js/parallax.js",
                         "~/Content/js/parallax.min.js",
                         "~/Content/js/animate-css.js",
@@ -27,7 +28,7 @@ namespace FinanceManager.App_Start
                         "~/Content/js/Controllers/SignInController.js",
                         "~/Content/js/Controllers/PersonalPageController.js"                     
                         ));
-
+            
             bundles.Add(new StyleBundle("~/bundles/css").Include(
                         "~/Content/css/style.css",
                         "~/Content/css/bootstrap.min.css",

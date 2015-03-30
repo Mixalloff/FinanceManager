@@ -14,7 +14,7 @@ moduleApp.controller("SignInController", function ($scope, $http, $location) {
     // Попытка авторизации
     $scope.TrySignIn = function (signIn, signInForm) {
         $scope.InfoView = false;
-        ValidateInputPaint(".signInBlock");
+        ValidateInputPaint(".signInBlock input");
         if (signInForm.$valid) {
             $http.post('/Authorization/SignIn', {
                 login: signIn.userLogin,
@@ -27,7 +27,7 @@ moduleApp.controller("SignInController", function ($scope, $http, $location) {
                     setTimeout(
                         function() {
                             document.location.href = '/PersonalPage';
-                        }, 2000
+                        }, 1000
                     );        
                 }
                 else {
@@ -45,8 +45,8 @@ moduleApp.controller("SignInController", function ($scope, $http, $location) {
 
     // Окраска валидных и невалидных полей соответствующим цветом
     function ValidateInputPaint(formClass) {
-        $(formClass + " input:invalid").css("background-color", "#FCD4E2");
-        $(formClass + " input:valid").css("background-color", "#fff");
+        $(formClass + ":invalid").css("background-color", "#FCD4E2");
+        $(formClass + ":valid").css("background-color", "#fff");
         // $(formClass + " input:valid").css("background-color", "#D4FCE2");
     }
 
@@ -96,9 +96,27 @@ moduleApp.controller("SignInController", function ($scope, $http, $location) {
         $scope.WindowRegView = false;
     }
 
+    $scope.loadPage = function () {
+        var url = new Url;
+        if (url.query["isRedirect"] == "true") {
+            $scope.OpenSignInForm();
+            ErrorInfo("Необходимо авторизоваться для перехода на личную страницу")
+        }
+    }
+
+    $scope.currencies = [
+        { name: "Рубль", abbreviation: "RUB" },
+        { name: "Доллар", abbreviation: "USD" },
+        { name: "Евро", abbreviation: "EUR" },
+        { name: "Франк", abbreviation: "CHR" },
+        { name: "Фунт", abbreviation: "GBR" },
+        { name: "Йена", abbreviation: "JPY" }
+    ];
+
     // Попытка регистрации
     $scope.TryRegister = function (registerData, RegisterForm) {
-        ValidateInputPaint(".registerForm");
+        ValidateInputPaint(".regFormField");
+
         if (RegisterForm.$valid) {
             if (registerData.newUserPassword == registerData.newUserPasswordReplay) {
                 $http.post('/Authorization/Register', {
@@ -109,10 +127,12 @@ moduleApp.controller("SignInController", function ($scope, $http, $location) {
                     town: registerData.newUserTown,
                     login: registerData.newUserLogin,
                     password: hex_md5(registerData.newUserPassword),
-                    currency: registerData.newUserCurrency
+                    currency: registerData.newUserCurrency.name,
+                    photo: registerData.newUserPhoto
                 }).success(function (response) {
                     if (response) {
                         alert("Пользователь добавлен");
+                        $scope.CloseRegisterForm();
                     }
                     else {
                         alert("Пользователь не добавлен");
@@ -127,3 +147,21 @@ moduleApp.controller("SignInController", function ($scope, $http, $location) {
         }
     }
 });
+
+moduleApp.directive("fileread", [function () {
+    return { scope: { fileread: "="
+    }, link: function (scope, element, attributes) { element.bind("change", function (changeEvent) {
+        var reader = new FileReader(); 
+        reader.onload = function (loadEvent) {
+            scope.$apply(function () {
+                scope.fileread = loadEvent.target.result;
+            });
+        };
+        reader.readAsDataURL(changeEvent.target.files[0]).result;
+
+       // reader.readAsArrayBuffer(changeEvent.target.files[0]);
+    //    String.fromCharCode.apply(null, new Uint16Array(reader.readAsArrayBuffer(changeEvent.target.files[0])));
+    });
+    }
+    }
+}]);
