@@ -1,4 +1,5 @@
 ﻿using FinanceManager.Models;
+using FinanceManager.Models.Authorization;
 using FinanceManager.Models.Repositories;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,37 @@ namespace FinanceManager.Controllers
         public RedirectResult operations()
         {
             return Redirect("/PersonalPage");
+        }
+
+        [HttpGet]
+        public JsonResult GetUserData() 
+        {
+            HttpCookie cookieReq = Request.Cookies[FormsAuthentication.FormsCookieName];
+            string cookie = cookieReq != null ? cookieReq.Value : string.Empty;
+            if (cookie != string.Empty)
+            {
+                string login = FormsAuthentication.Decrypt(cookie).Name;
+                using (FinanceManagerDb context = new FinanceManagerDb())
+                {
+                    UserRepository users = new UserRepository(context);
+                    var user = users.FindByLogin(login);
+
+                    UserData data = new UserData();
+                    data.Name = user.Name;
+                    data.Surname = user.Surname;
+                    data.Login = user.Login;
+                    data.Country = user.Country;
+                    data.Town = user.Town;
+                    data.Email = user.Email;
+                    data.Balance = 111;
+                    data.Image = user.Photo;
+                    data.Currency = user.MainCurrency.Name;
+
+                    return this.Json(data, JsonRequestBehavior.AllowGet);
+                }
+            }
+
+            return null;
         }
     }
 }

@@ -25,7 +25,7 @@ var personalModuleApp = angular.module('PersonalModule', ['ngRoute'])
 
 })
 .controller("PersonalPageController", 
-function ($route, $routeParams, $location, $scope) {
+function ($route, $routeParams, $location, $scope, $http) {
     $scope.goToStart = function () {
         $location.path('/PersonalPage')
     }
@@ -34,12 +34,12 @@ function ($route, $routeParams, $location, $scope) {
         $location.path('/PersonalPage/operations')
     }
 
-    $scope.name = getCookie("VisitorName");
-    $scope.surname = getCookie("VisitorSurname");
+    //$scope.name = getCookie("VisitorName");
+   // $scope.surname = getCookie("VisitorSurname");
 
     // Тестовые данные-заглушки (будут подтягиваться из БД)
-    $scope.balance = 6800;
-    $scope.profileImgSrc = "/Resources/UsersFiles/mixalloff/images/1.jpg";
+   // $scope.balance = 6800;
+    //$scope.profileImgSrc = "/Resources/UsersFiles/mixalloff/images/1.jpg";
 
 
     $scope.squareElemLoad = function (element) {
@@ -64,8 +64,20 @@ function ($route, $routeParams, $location, $scope) {
         ));
         return matches ? decodeURIComponent(matches[1]) : undefined; 
     }
-
-
+    
+    $scope.userdata = function ()
+    {
+        $http.get("/PersonalPage/GetUserData")
+        .success(function (data) {
+            $scope.balance = data.Balance;
+            $scope.profileImgSrc = data.Image;
+            $scope.name = data.Name;
+            $scope.surname = data.Surname;
+        })
+        .error(function (data) {
+            alert(data);
+        });
+    }
 })
 .controller("personalStartController",
 function ($route, $routeParams, $location, $scope) {

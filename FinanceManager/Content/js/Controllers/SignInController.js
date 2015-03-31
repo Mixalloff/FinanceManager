@@ -150,18 +150,17 @@ moduleApp.controller("SignInController", function ($scope, $http, $location) {
 
 moduleApp.directive("fileread", [function () {
     return { scope: { fileread: "="
-    }, link: function (scope, element, attributes) { element.bind("change", function (changeEvent) {
-        var reader = new FileReader(); 
-        reader.onload = function (loadEvent) {
-            scope.$apply(function () {
-                scope.fileread = loadEvent.target.result;
+    },
+        link: function (scope, element, attributes) {
+            element.bind("change", function (changeEvent) {
+                var reader = new FileReader(); 
+                reader.onload = function (loadEvent) {
+                    scope.$apply(function () {
+                        scope.fileread = loadEvent.target.result;
+                    });
+                };
+                reader.readAsDataURL(changeEvent.target.files[0]).result;
             });
-        };
-        reader.readAsDataURL(changeEvent.target.files[0]).result;
-
-       // reader.readAsArrayBuffer(changeEvent.target.files[0]);
-    //    String.fromCharCode.apply(null, new Uint16Array(reader.readAsArrayBuffer(changeEvent.target.files[0])));
-    });
-    }
+        }
     }
 }]);

@@ -134,6 +134,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Authorization\LoginData.cs" />
+    <Compile Include="Models\Authorization\UserData.cs" />
     <Compile Include="Models\Entities\Account.cs" />
     <Compile Include="Models\Entities\AccountType.cs" />
     <Compile Include="Models\Entities\Archive.cs" />
@@ -192,6 +193,7 @@
     <Content Include="Content\Templates\mainPersonalPage.html" />
     <Content Include="Content\Templates\personalOperations.html" />
     <Content Include="Content\Templates\RegisterForm.html" />
+    <Content Include="Content\Templates\SignInForm.html" />
     <Content Include="Global.asax" />
     <Content Include="Content\js\Controllers\SignInController.js" />
     <Content Include="Resources\BdScripts\rolesAndCurrences.sql" />
