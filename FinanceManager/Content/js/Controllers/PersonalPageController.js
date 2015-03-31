@@ -24,7 +24,7 @@ var personalModuleApp = angular.module('PersonalModule', ['ngRoute'])
     });
 
 })
-.controller("PersonalPageController", 
+.controller("PersonalPageController",
 function ($route, $routeParams, $location, $scope, $http) {
     $scope.goToStart = function () {
         $location.path('/PersonalPage')
@@ -35,10 +35,10 @@ function ($route, $routeParams, $location, $scope, $http) {
     }
 
     //$scope.name = getCookie("VisitorName");
-   // $scope.surname = getCookie("VisitorSurname");
+    // $scope.surname = getCookie("VisitorSurname");
 
     // Тестовые данные-заглушки (будут подтягиваться из БД)
-   // $scope.balance = 6800;
+    // $scope.balance = 6800;
     //$scope.profileImgSrc = "/Resources/UsersFiles/mixalloff/images/1.jpg";
 
 
@@ -58,21 +58,30 @@ function ($route, $routeParams, $location, $scope, $http) {
         document.cookie = name += "=; expires=" + new Date(0).toGMTString();
     }
 
-    function getCookie(name) {    
+    function getCookie(name) {
         var matches = document.cookie.match(new RegExp(
-          "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)" 
+          "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
         ));
-        return matches ? decodeURIComponent(matches[1]) : undefined; 
+        return matches ? decodeURIComponent(matches[1]) : undefined;
     }
-    
-    $scope.userdata = function ()
-    {
+
+    $scope.userdata = function () {
         $http.get("/PersonalPage/GetUserData")
         .success(function (data) {
             $scope.balance = data.Balance;
-            $scope.profileImgSrc = data.Image;
+               
             $scope.name = data.Name;
             $scope.surname = data.Surname;
+
+            // Предварительная загрузка изображения
+            var image = new Image();
+            image.onload = function () {
+                $scope.$apply(function () {
+                    $scope.profileImgSrc = image.src;
+                });
+            };
+            image.src = data.Image;
+                
         })
         .error(function (data) {
             alert(data);
@@ -92,4 +101,28 @@ function ($route, $routeParams, $location, $scope) {
        { name: 'Закупка в магазине продуктами', type: -1, account: 'Банковская карта', group: 'Продукты', price: '450 руб', date: '25.04.2014' },
        { name: 'Сделал лабу пацанам', type: 1, account: 'Наличные', group: 'Подработка', price: '500 руб', date: '30.04.2014' }
     ];
-});
+})
+
+.directive("imageAlign", [function () {
+    return {
+        link: function (scope, element, attr) {
+            attr.$observe("src", function (srcAttribute) {
+                if (element.width() < element.height()) {
+                    element.width(element.parent().width());
+                    element.css("margin-top", -(element.height() - element.parent().height()) / 2);
+                }
+                else {
+                    element.height(element.parent().height());
+                    element.css("margin-left", -(element.width() - element.parent().width()) / 2);
+                }
+            });
+
+            //scope.$watch("profileImgSrc", function (value) {
+            //     if (scope.profileImgSrc) {
+            //        element.css("src", scope.profileImgSrc);
+            //        imageAlign(element, element.parent());
+            //    }  
+           // });
+        }
+    }
+}]);

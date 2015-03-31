@@ -5,19 +5,32 @@ $(window).load(function () {
     $(".loader").delay(400).fadeOut("slow");
 
     // Квадратные блоки
-  //  $(".catalogs").css("height", $(".catalogs").css("width"));
-    
+    //  $(".catalogs").css("height", $(".catalogs").css("width"));
+
+   // imageAlign(".profileImg", ".profileImgContainer");
+
     // Выравнивание изображения профиля по центру
-    if ($(".profileImg").width() < $(".profileImg").height()) {
-        $(".profileImg").width($(".profileImgContainer").width());
-        $(".profileImg").css("margin-top", -($(".profileImg").height() - $(".profileImgContainer").height()) / 2);
-    }
-    else {
-        $(".profileImg").height($(".profileImgContainer").height());
-        $(".profileImg").css("margin-left", -($(".profileImg").width() - $(".profileImgContainer").width()) / 2);
-    }
+    //if ($(".profileImg").width() < $(".profileImg").height()) {
+    //    $(".profileImg").width($(".profileImgContainer").width());
+    //    $(".profileImg").css("margin-top", -($(".profileImg").height() - $(".profileImgContainer").height()) / 2);
+    //}
+    //else {
+    //    $(".profileImg").height($(".profileImgContainer").height());
+    //    $(".profileImg").css("margin-left", -($(".profileImg").width() - $(".profileImgContainer").width()) / 2);
+    //}
 
 });
+
+//function imageAlign(image, container) {
+//    if ($(image).width() < $(image).height()) {
+//        $(image).width($(container).width());
+//        $(image).css("margin-top", -($(image).height() - $(container).height()) / 2);
+//    }
+//    else {
+//        $(image).height($(container).height());
+//        $(image).css("margin-left", -($(image).width() - $(container).width()) / 2);
+//    }
+//}
 
 $(document).ready(function () {
     // Определение высоты секций
