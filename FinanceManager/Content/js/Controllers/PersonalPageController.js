@@ -116,13 +116,6 @@ function ($route, $routeParams, $location, $scope) {
                     element.css("margin-left", -(element.width() - element.parent().width()) / 2);
                 }
             });
-
-            //scope.$watch("profileImgSrc", function (value) {
-            //     if (scope.profileImgSrc) {
-            //        element.css("src", scope.profileImgSrc);
-            //        imageAlign(element, element.parent());
-            //    }  
-           // });
         }
     }
 }]);

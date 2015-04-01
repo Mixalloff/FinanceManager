@@ -55,9 +55,11 @@ namespace FinanceManager.Controllers
                     data.Country = user.Country;
                     data.Town = user.Town;
                     data.Email = user.Email;
-                    data.Balance = 111;
                     data.Image = user.Photo;
                     data.Currency = user.MainCurrency.Name;
+
+                    // Заглушка на баланс (необходимо рассчитывать на основании счетов и операций)
+                    data.Balance = 0;
 
                     return this.Json(data, JsonRequestBehavior.AllowGet);
                 }

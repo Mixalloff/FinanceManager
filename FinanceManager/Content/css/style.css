@@ -501,3 +501,17 @@ background-color: rgba(0,0,0,.3);
 	color: #f00;
 }
 /*...........*/
+
+.previewImgContainer{
+	position: fixed;
+	width: 150px!important;
+	height: 150px!important;
+	left: 130px;
+	top: 50%;
+	overflow: hidden;
+}
+
+.previewImgContainer img{
+	/*max-width: 100%;
+	max-height: 100%;*/
+}

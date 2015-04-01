@@ -11,6 +11,8 @@ moduleApp.controller("SignInController", function ($scope, $http, $location) {
     // Видимость окна авторизации
     $scope.WindowSignInView = false;
 
+    $scope.previewImgSrc = "/Resources/UsersFiles/mixalloff/images/1.jpg";
+
     // Попытка авторизации
     $scope.TrySignIn = function (signIn, signInForm) {
         $scope.InfoView = false;
@@ -88,7 +90,7 @@ moduleApp.controller("SignInController", function ($scope, $http, $location) {
     // Открытие окна регистрации
     $scope.OpenRegisterForm = function () {
         $scope.WindowRegView = true;
-        //$scope.WindowSignInView = false;
+        $scope.WindowSignInView = false;
     }
 
     // Скрытие окна регистрации
@@ -146,17 +148,23 @@ moduleApp.controller("SignInController", function ($scope, $http, $location) {
             }
         }
     }
+
 });
 
 moduleApp.directive("fileread", [function () {
-    return { scope: { fileread: "="
-    },
+    return {
+        scope: {
+            fileread: "="
+        },
         link: function (scope, element, attributes) {
             element.bind("change", function (changeEvent) {
                 var reader = new FileReader(); 
                 reader.onload = function (loadEvent) {
                     scope.$apply(function () {
                         scope.fileread = loadEvent.target.result;
+
+                        // Изменение превью картинки
+                        scope.$parent.previewImgSrc = loadEvent.target.result;
                     });
                 };
                 reader.readAsDataURL(changeEvent.target.files[0]).result;
