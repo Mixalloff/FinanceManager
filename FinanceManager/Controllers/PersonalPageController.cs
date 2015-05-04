@@ -35,6 +35,16 @@ namespace FinanceManager.Controllers
             return Redirect("/PersonalPage");
         }
 
+        public RedirectResult accounts()
+        {
+            return Redirect("/PersonalPage");
+        }
+
+        public RedirectResult chats()
+        {
+            return Redirect("/PersonalPage");
+        }
+
         [HttpGet]
         public JsonResult GetUserData() 
         {

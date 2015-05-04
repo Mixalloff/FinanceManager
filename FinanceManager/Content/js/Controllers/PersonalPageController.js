@@ -15,9 +15,17 @@ var personalModuleApp = angular.module('PersonalModule', ['ngRoute'])
         templateUrl: '/Content/Templates/mainPersonalPage.html',
         controller: 'personalStartController'
     })
-    .when('/PersonalPage/operations', { //Шаблон авторизированного входа
+    .when('/PersonalPage/operations', { 
         templateUrl: '/Content/Templates/personalOperations.html',
         controller: 'personalOperationsController'
+    })
+    .when('/PersonalPage/chats', { 
+        templateUrl: '/Content/Templates/personalChats.html',
+        controller: 'personalChatsController'
+    })
+    .when('/PersonalPage/accounts', {
+        templateUrl: '/Content/Templates/personalAccounts.html',
+        controller: 'personalAccountsController'
     })
     .otherwise({
         redirectTo: '/Home'
@@ -32,6 +40,14 @@ function ($route, $routeParams, $location, $scope, $http) {
 
     $scope.goToOperations = function () {
         $location.path('/PersonalPage/operations')
+    }
+
+    $scope.goToChats = function () {
+        $location.path('/PersonalPage/chats')
+    }
+
+    $scope.goToAccounts = function () {
+        $location.path('/PersonalPage/accounts')
     }
 
     //$scope.name = getCookie("VisitorName");
@@ -91,6 +107,15 @@ function ($route, $routeParams, $location, $scope, $http) {
 .controller("personalStartController",
 function ($route, $routeParams, $location, $scope) {
 })
+
+.controller("personalChatsController",
+    function ($route, $routeParams, $location, $scope) {
+    })
+
+.controller("personalAccountsController",
+    function ($route, $routeParams, $location, $scope) {
+})
+
 .controller("personalOperationsController",
 function ($route, $routeParams, $location, $scope) {
     $scope.operations = [
@@ -101,6 +126,16 @@ function ($route, $routeParams, $location, $scope) {
        { name: 'Закупка в магазине продуктами', type: -1, account: 'Банковская карта', group: 'Продукты', price: '450 руб', date: '25.04.2014' },
        { name: 'Сделал лабу пацанам', type: 1, account: 'Наличные', group: 'Подработка', price: '500 руб', date: '30.04.2014' }
     ];
+
+    $scope.openAddOperationFormVisible = false;
+
+    $scope.OpenAddOperationForm = function () {
+        $scope.openAddOperationFormVisible = true;
+    }
+
+    $scope.CloseAddOperationForm = function () {
+        $scope.openAddOperationFormVisible = false;
+    }
 })
 
 .directive("imageAlign", [function () {

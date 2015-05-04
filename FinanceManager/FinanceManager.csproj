@@ -191,6 +191,8 @@
     <Content Include="Content\js\url.min.js" />
     <Content Include="Content\js\waypoints.min.js" />
     <Content Include="Content\Templates\mainPersonalPage.html" />
+    <Content Include="Content\Templates\personalAccounts.html" />
+    <Content Include="Content\Templates\personalChats.html" />
     <Content Include="Content\Templates\personalOperations.html" />
     <Content Include="Content\Templates\RegisterForm.html" />
     <Content Include="Content\Templates\SignInForm.html" />

@@ -2,6 +2,10 @@ body{
 
 }
 
+header{
+	height: 0;
+}
+
 .sectionTop{
 	background-color: rgba(0,0,0,.3);
 	background-image: url(../Images/headSection.jpg);
@@ -162,6 +166,63 @@ body{
 }
 
 /* Операции пользователя */
+.closeBtn
+{
+    width: 20px;
+    height: 20px;
+    right: 0;
+    top: 0;
+    position: absolute;
+    font-size: 20px!important;
+}
+
+.closeBtn:hover
+{
+    color: red;
+    cursor: pointer;
+}
+
+.operationAddForm
+{
+	position: fixed;
+	z-index: 2000;
+	/*position: absolute;*/
+	width: 40%;
+	/*height: 50%;*/
+	box-shadow: rgba(0, 0, 0, .6) 0 0 0 1000px;
+	top: 10%;
+	left: 30%;
+	padding: 20px;
+	border-radius: 10px;
+
+	background-color: white;
+}
+
+.operationAddForm h1{
+	margin: 0 0 10px 0 ;
+	font-size: 18pt;
+}
+
+.addOperationFormField{
+	width: 50%;
+}
+
+.operationAddForm label{
+	width: 30%;
+    text-align: left;
+    margin: 10px 5%;
+}
+
+#newOperationNotes{
+	resize: none;
+	margin: 0 5%;
+}
+
+.operationAddForm button{
+	display: block;
+	margin: 10px 0 0 5%;
+}
+
 .operationsBlock{
 	width: 100%;
 	background-color: rgba(0,0,0,.9);
@@ -226,6 +287,7 @@ body{
 	background-color: rgb(69, 68, 68);
 	display: flex;
 	padding-right: 12px;
+	margin-top: 10px;
 }
 
 .operationHead div{
@@ -244,6 +306,74 @@ body{
 	text-align: center;
 }
 
+.btns{
+	color: white;
+	border-radius: 10px;
+	padding: 5px 5px;
+	min-width: 100px;
+}
+
+.addBtn{
+	background-image:  linear-gradient(top, #008800, #005500);
+    background-image: -webkit-linear-gradient(top, #008800, #005500);
+    background-image: -o-linear-gradient(top, #008800, #005500);
+    background-image: -moz-linear-gradient(top, #008800, #005500);
+}
+
+.addBtn:hover{
+	background-image:  linear-gradient(top, #00bb00, #009900);
+    background-image: -webkit-linear-gradient(top, #00bb00, #009900);
+    background-image: -o-linear-gradient(top, #00bb00, #009900);
+    background-image: -moz-linear-gradient(top, #00bb00, #009900);
+}
+
+.delBtn{	
+	background-image:  linear-gradient(top, #880000, #550000);
+    background-image: -webkit-linear-gradient(top, #880000, #550000);
+    background-image: -o-linear-gradient(top, #880000, #550000);
+    background-image: -moz-linear-gradient(top, #880000, #550000);
+}
+
+.delBtn:hover{
+	background-image:  linear-gradient(top, #dd0000, #aa0000);
+    background-image: -webkit-linear-gradient(top, #dd0000, #aa0000);
+    background-image: -o-linear-gradient(top, #dd0000, #aa0000);
+    background-image: -moz-linear-gradient(top, #dd0000, #aa0000);
+}
+
+.delBtn, .addBtn{
+	border: 0;
+	margin-right: 10px;
+}
+
+.searchField{
+	color: black;
+}
+
+.operationFlag{
+	display: flex;
+	/*flex: 1;*/
+	justify-content:center;
+	align-items: center;
+	text-align: center;
+	height: 100%;
+	width: 5%;
+	vertical-align: middle;
+	border-right: 1px solid black;
+}
+
+.operationFlag:hover{
+	background-image:  linear-gradient(top, #0000ff, #000055);
+    background-image: -webkit-linear-gradient(top, #0000ff, #000055);
+    background-image: -o-linear-gradient(top, #0000dd, #0000aa);
+    background-image: -moz-linear-gradient(top, #0000dd, #0000aa);
+}
+
+/*.operationFlag input{
+	width: 90%;
+	height: 90%;
+}*/
+
 .operationType,
 .operationAccount,
 .operationGroup,
@@ -259,6 +389,66 @@ body{
 	vertical-align: middle;
 }
 
+/* Accounts */
+.accountsBlock{
+	width: 100%;
+	height: 400px;
+	padding: 5px;
+
+	background-color: rgba(0,0,0,.9);
+	margin-top: 10%;
+	color: white;
+	border-radius: 10px 10px 0 0;
+}
+
+.accountsContainer{
+	width: 100%;
+	height: 90%;
+	overflow-y: auto;
+	/*border: 1px solid grey;*/
+
+	background-color: rgba(0,50,0,.9);
+}
+
+.accountItem{
+	height: 49%;
+	margin-bottom: 1%;
+display: flex;
+	background-color: green;
+}
+
+.accountItem:last-child{
+	margin: 0;
+}
+
+.accountItemImg img{
+	width: 100%;
+	height: 100%;
+}
+
+.accountItemName,
+.accountItemImg{
+	width: 40%;
+	height: 100%;
+	vertical-align: middle;
+	display: flex;
+	justify-content:center;
+	align-items: center;
+	text-align: center;
+
+	background-color: red;
+}
+
+
+.accountItemAmount{
+	display: flex;
+	flex: 1;
+	justify-content:center;
+	align-items: center;
+	text-align: center;
+	height: 100%;
+	vertical-align: middle;
+}
 
 /* Скролл для Webkit */
 ::-webkit-scrollbar{
