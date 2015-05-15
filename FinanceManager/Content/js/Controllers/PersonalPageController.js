@@ -58,8 +58,12 @@ function ($route, $routeParams, $location, $scope, $http) {
     //$scope.profileImgSrc = "/Resources/UsersFiles/mixalloff/images/1.jpg";
 
 
-    $scope.squareElemLoad = function (element) {
+    $scope.squareElemByWidth = function (element) {
         $(element).css("height", $(element).css("width"));
+    }
+
+    $scope.squareElemByHeight = function (element) {
+        $(element).css("width", $(element).css("height"));
     }
 
     $scope.logout = function () {
@@ -114,6 +118,16 @@ function ($route, $routeParams, $location, $scope) {
 
 .controller("personalAccountsController",
     function ($route, $routeParams, $location, $scope) {
+        $scope.accounts = [
+            { name: "Наличные", amount: "15 000", img: "/Resources/UsersFiles/mixalloff/images/1.jpg" },
+            { name: "Мобильный", amount: "200", img: "/Resources/UsersFiles/Mixalloff/avatar.jpeg" },
+            { name: "Наличные", amount: "15 000", img: "/Resources/UsersFiles/mixalloff/images/1.jpg" },
+            { name: "Наличные", amount: "15 000", img: "/Resources/UsersFiles/mixalloff/images/1.jpg" },
+            { name: "Наличные", amount: "15 000", img: "/Resources/UsersFiles/mixalloff/images/1.jpg" },
+            { name: "Наличные", amount: "15 000", img: "/Resources/UsersFiles/mixalloff/images/1.jpg" },
+            { name: "Наличные", amount: "15 000", img: "/Resources/UsersFiles/mixalloff/images/1.jpg" },
+            { name: "Наличные", amount: "15 000", img: "/Resources/UsersFiles/mixalloff/images/1.jpg" }
+        ];
 })
 
 .controller("personalOperationsController",
@@ -127,6 +141,23 @@ function ($route, $routeParams, $location, $scope) {
        { name: 'Сделал лабу пацанам', type: 1, account: 'Наличные', group: 'Подработка', price: '500 руб', date: '30.04.2014' }
     ];
 
+    $scope.operationGroups = [
+        { name: 'Доходы' },
+        { name: 'Расходы' }
+    ];
+
+    $scope.userAccounts = [
+        { name: 'Наличные' },
+        { name: 'Карта сбербанк' }
+    ];
+
+    $scope.operationType = [
+        { name: 'Доход' },
+        { name: 'Расход' }
+    ];
+
+    $scope.newOperationDate = new Date();
+
     $scope.openAddOperationFormVisible = false;
 
     $scope.OpenAddOperationForm = function () {
@@ -136,6 +167,29 @@ function ($route, $routeParams, $location, $scope) {
     $scope.CloseAddOperationForm = function () {
         $scope.openAddOperationFormVisible = false;
     }
+
+                //$http.post('/Authorization/SignIn', {
+                //    login: signIn.userLogin,
+                //    password: hex_md5(signIn.userPassword),
+                //}).success(function (response) {
+                //    if (response.IsAuthenticated) {
+                //        SuccessSignIn("Авторизация успешно пройдена!");
+
+                //        // Redirect to personal page
+                //        setTimeout(
+                //            function () {
+                //                document.location.href = '/PersonalPage';
+                //            }, 1000
+                //        );
+                //    }
+                //    else {
+                //        ErrorInfo("Ошибка! Неверный логин и/или пароль!");
+                //    }
+                //}).error(function (response) {
+                //    //alert("Error: " + response);
+                //    ErrorInfo("Ошибка сервера!");
+                //});
+
 })
 
 .directive("imageAlign", [function () {

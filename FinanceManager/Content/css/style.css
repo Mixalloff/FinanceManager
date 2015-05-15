@@ -79,7 +79,7 @@ section h3{
 }
 
 .tariffSection{
-	background-color: #ccc;
+	background-color: #EFEFEF;
 }
 
 .contactsSection{
@@ -476,7 +476,7 @@ background-color: rgba(0,0,0,.3);
 }
 
 .usualText p:nth-child(2n+1){
-	color: #809157;
+	color: #24801A;
 	margin-bottom: 20px;
 }
 
@@ -514,4 +514,84 @@ background-color: rgba(0,0,0,.3);
 .previewImgContainer img{
 	/*max-width: 100%;
 	max-height: 100%;*/
+}
+
+.tariffs{
+	padding: 10px;
+	/*background-color: rgba(0, 0, 0, .7);*/
+
+	/*background-image:         linear-gradient(top, rgba(152, 176, 181, 0.2), rgba(0, 0, 0, 0.4));
+    background-image: -webkit-linear-gradient(top, rgba(152, 176, 181, 0.2), rgba(0, 0, 0, 0.4));
+    background-image:      -o-linear-gradient(top, rgba(152, 176, 181, 0.2), rgba(0, 0, 0, 0.4));
+    background-image:    -moz-linear-gradient(top, rgba(152, 176, 181, 0.2), rgba(0, 0, 0, 0.4));*/
+
+     box-shadow: rgba(0, 0, 0, 1) 0px 0px 10px;
+	/*background-color: red;*/
+}
+
+.vipTariff{
+	background-image: -webkit-linear-gradient(top, rgba(210, 207, 9, 0.611765), rgba(221, 204, 204, 0.4));
+
+	background-image:         linear-gradient(top, rgba(210, 207, 9, 0.611765), rgba(221, 204, 204, 0.4));
+    background-image:      -o-linear-gradient(top, rgba(210, 207, 9, 0.611765), rgba(221, 204, 204, 0.4));
+    background-image:    -moz-linear-gradient(top, rgba(210, 207, 9, 0.611765), rgba(221, 204, 204, 0.4));
+}
+
+.standartTariff{
+	background-image: -webkit-linear-gradient(top, rgba(155, 155, 155, 0.611765), rgba(221, 204, 204, 0.4));
+
+	background-image:         linear-gradient(top, rgba(155, 155, 155, 0.611765), rgba(221, 204, 204, 0.4));
+    background-image:      -o-linear-gradient(top, rgba(155, 155, 155, 0.611765), rgba(221, 204, 204, 0.4));
+    background-image:    -moz-linear-gradient(top, rgba(155, 155, 155, 0.611765), rgba(221, 204, 204, 0.4));
+
+}
+
+.cheepTariff{
+	background-image: -webkit-linear-gradient(top, rgba(153, 100, 4, 0.611765), rgba(221, 204, 204, 0.4));
+	
+	background-image:         linear-gradient(top, rgba(153, 100, 4, 0.611765), rgba(221, 204, 204, 0.4));
+    background-image:      -o-linear-gradient(top, rgba(153, 100, 4, 0.611765), rgba(221, 204, 204, 0.4));
+    background-image:    -moz-linear-gradient(top, rgba(153, 100, 4, 0.611765), rgba(221, 204, 204, 0.4));
+}
+
+.tariffs:nth-child(2n+1){
+	/*margin-top: 50px;*/
+}
+
+.tariffs h1{
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	font-size: 22pt;
+	font-family: Times, 'New Century Schoolbook', serif;
+	font-weight: 600;
+
+	color: rgb(107, 20, 20);
+}
+
+.tariffInfo{
+	width: 100%;
+	padding: 10px;
+	min-height: 250px;
+	letter-spacing: 1px;
+	/*line-height: 42px;*/
+
+	/*height: 100px;*/
+	background-color: rgba(230, 230, 230, .8);
+}
+
+.tariffInfo li{
+	margin: 15px 0;
+}
+
+.tariffPrice{
+	width: 100%;
+	margin-top: 10px;
+	padding: 10px;
+	text-align: center;
+	font-size: 18pt;
+	font-weight: bold;
+
+	background-color: rgb(107, 20, 20);
+	color: white;
 }

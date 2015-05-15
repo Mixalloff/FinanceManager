@@ -45,6 +45,20 @@ namespace FinanceManager.Controllers
             return Redirect("/PersonalPage");
         }
 
+        //[HttpPost]
+        //public JsonResult AddOperation(string name, int group, int account, int type, DateTime dateStart, string amount, string notes)
+        //{
+        //    using (FinanceManagerDb context = new FinanceManagerDb())
+        //    {
+
+        //        var users = new UserRepository(context);
+        //       // Остальные репозитории
+
+        //    }
+
+        //    return this.Json(true);
+        //}
+
         [HttpGet]
         public JsonResult GetUserData() 
         {

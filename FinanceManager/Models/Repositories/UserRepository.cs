@@ -21,12 +21,9 @@ namespace FinanceManager.Models.Repositories
         }
 
         public override IEnumerable<User> GetAll()
-        {
-            
-                return this.IncludeReferences(context.Users)
-                    .ToList();
-               
-            
+        {           
+            return this.IncludeReferences(context.Users)
+                .ToList();  
         }
 
         /// <summary>

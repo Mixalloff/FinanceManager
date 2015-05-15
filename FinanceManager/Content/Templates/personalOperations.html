@@ -41,28 +41,29 @@
 	<h1>Добавление операции</h1>
 
 	<label for="newOperationName">Название операции:</label>
-	<input class="addOperationFormField" id="newOperationName" type="text" placeholder="Введите название"><br/>
+	<input ng-model="newOperationData.newOperationName" class="addOperationFormField" id="newOperationName" type="text" placeholder="Введите название"><br/>
 
 	<label for="newOperationGroup">Группа:</label>
-	<select class="addOperationFormField" id="newOperationGroup">
+
+	<select ng-model="newOperationData.newOperationGroup" ng-options="group.name for group in operationGroups" class="addOperationFormField" id="newOperationGroup">
 	</select><br/>
 
 	<label for="newOperationAccount">Счет:</label>
-	<select class="addOperationFormField" id="newOperationAccount">
+	<select ng-model="newOperationData.newOperationAccount" ng-options="account.name for account in userAccounts" class="addOperationFormField" id="newOperationAccount">
 	</select><br/>
 
 	<label for="newOperationType">Тип операции:</label>
-	<select class="addOperationFormField" id="newOperationType">
+	<select ng-model="newOperationData.newOperationType" ng-options="type.name for type in operationType" class="addOperationFormField" id="newOperationType">
 	</select><br/>
 
 	<label for="newOperationDate">Дата операции:</label>
-	<input class="addOperationFormField" id="newOperationDate" type="datetime-local"><br/>
+	<input ng-model="newOperationDate" class="addOperationFormField" id="newOperationDate" type="datetime-local"><br/>
 
 	<label for="newOperationNominal">Сумма операции:</label>
-	<input class="addOperationFormField" id="newOperationNominal" type="text" placeholder="Введите сумму"><br/>
+	<input ng-model="newOperationData.newOperationNominal" class="addOperationFormField" id="newOperationNominal" type="text" placeholder="Введите сумму"><br/>
 
 	<label for="newOperationNotes">Заметки:</label><br/>
-	<textarea class="" id="newOperationNotes" placeholder="Ваши заметки" cols="50" rows="5"></textarea></br>
+	<textarea ng-model="newOperationData.newOperationNotes" class="" id="newOperationNotes" placeholder="Ваши заметки" cols="50" rows="5"></textarea></br>
 
-	<button class="addBtn btns">Добавить</button>
+	<button ng-click="TryAddOperation(newOperationData)" class="addBtn btns">Добавить</button>
 </form>

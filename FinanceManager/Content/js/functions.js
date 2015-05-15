@@ -61,7 +61,7 @@ $(document).ready(function () {
 
     // Анимация при скролле до элемента
     $(".projectName").animated("fadeInDown", "fadeOutUp");
-    $(".slogan, .sectionHeadBlock").animated("fadeInUp", "fadeOutDown");
+    $(".animationTop").animated("fadeInUp", "fadeOutDown");
     $(".animationLeft").animated("fadeInLeft", "fadeOutRight");
     $(".animationRight").animated("fadeInRight", "fadeOutLeft");
     $(".animationImg").animated("zoomIn", "zoomOut");

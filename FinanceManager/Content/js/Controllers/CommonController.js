@@ -19,8 +19,12 @@ moduleApp.controller("CommonController", function ($scope, $http) {
         $(animatedElement).fadeToggle(600);
     }
 
-    $scope.squareElemLoad = function (element) {
+    $scope.squareElemByWidth = function (element) {
         $(element).css("height", $(element).css("width"));
+    }
+
+    $scope.squareElemByHeight = function (element) {
+        $(element).css("width", $(element).css("height"));
     }
 });
 
