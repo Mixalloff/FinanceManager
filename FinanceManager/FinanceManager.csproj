@@ -149,9 +149,14 @@
     <Compile Include="Models\Entities\TypeCashFlow.cs" />
     <Compile Include="Models\Entities\User.cs" />
     <Compile Include="Models\FinanceManagerDb.cs" />
+    <Compile Include="Models\PersonalPage\AccountData.cs" />
+    <Compile Include="Models\PersonalPage\OperationData.cs" />
     <Compile Include="Models\ProjectInitializer.cs" />
     <Compile Include="Models\Repositories\AbstractRepository.cs" />
+    <Compile Include="Models\Repositories\AccountRepository.cs" />
+    <Compile Include="Models\Repositories\CashFlowRepository.cs" />
     <Compile Include="Models\Repositories\CurrencyRepository.cs" />
+    <Compile Include="Models\Repositories\GroupRepository.cs" />
     <Compile Include="Models\Repositories\RoleRepository.cs" />
     <Compile Include="Models\Repositories\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

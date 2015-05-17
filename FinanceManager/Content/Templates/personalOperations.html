@@ -1,69 +1,67 @@
 <div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="operationsBlock">
-				<p>Операции пользователя</p>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="operationsBlock">
+                <h1>Мои операции</h1>
 
-				<button class="addBtn btns" ng-click="OpenAddOperationForm()">Добавить</button>
-				<button class="delBtn btns">Удалить</button>
-				<label for="searchField">Поиск:</label>
-				<input class="searchField" type="text" id="searchField" ng-model="searchText">
+                <button class="addBtn btns" ng-click="OpenAddOperationForm()">Добавить</button>
+                <button class="delBtn btns" ng-click="DeleteSelectedOperations()">Удалить</button>
+                <label for="searchField">Поиск:</label>
+                <input class="searchField" type="text" id="searchField" ng-model="searchText">
 
-				<div class="operationHead">
-					<div class="operationFlag">
-						<input type="checkbox">
-					</div>
-					<div class="operationName">Наименование</div>
-					<div class="operationAccount">Счет</div>
-					<div class="operationGroup">Группа</div>
-					<div class="operationPrice">Стоимость</div>
-					<div class="operationDate">Дата</div>
-				</div>						
-				<div class="operationsContainer">
-					<div ng-class="{true:'income operation', false:'cost operation'}[current.type==1]" ng-repeat="current in operations  | filter:searchText">
-						<div class="operationFlag">
-							
-						</div>
-						<div class="operationName">{{current.name}}</div>
-						<div class="operationAccount">{{current.account}}</div>
-						<div class="operationGroup">{{current.group}}</div>
-						<div class="operationPrice">{{current.price}}</div>
-						<div class="operationDate">{{current.date}}</div>
-					</div>			
-				</div>
-			</div>
-		</div>
-	</div>
+                <div class="operationHead">
+                    <div class="operationFlag" ng-click="selectAll(operations)">
+                        <!--<input type="checkbox">-->
+                    </div>
+                    <div class="operationName">Наименование</div>
+                    <div class="operationAccount">Счет</div>
+                    <div class="operationGroup">Группа</div>
+                    <div class="operationPrice">Стоимость</div>
+                    <div class="operationDate">Дата</div>
+                </div>
+                <div class="operationsContainer">
+                    <div ng-class="{true:'income operation', false:'cost operation'}[current.Type=='Доход']" ng-repeat="current in operations  | filter:searchText">
+                        <div ng-class="{true:'selected operationFlag', false:'unselected operationFlag'}[current.IsSelected]" ng-click="select(this)"></div>
+                        <div class="operationName">{{current.Name}}</div>
+                        <div class="operationAccount">{{current.Account}}</div>
+                        <div class="operationGroup">{{current.Group}}</div>
+                        <div class="operationPrice">{{current.Price}}</div>
+                        <div class="operationDate">{{current.Date}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<form class="operationAddForm" ng-if="openAddOperationFormVisible">
-	<i class="closeBtn fa fa-close" ng-click="CloseAddOperationForm()" enctype="multipart/form-data"></i>
-	<h1>Добавление операции</h1>
+<form class="operationAddForm" name="operationAddForm" ng-if="openAddOperationFormVisible">
+    <i class="closeBtn fa fa-close" ng-click="CloseAddOperationForm()" enctype="multipart/form-data"></i>
+    <h1>Добавление операции</h1>
 
-	<label for="newOperationName">Название операции:</label>
-	<input ng-model="newOperationData.newOperationName" class="addOperationFormField" id="newOperationName" type="text" placeholder="Введите название"><br/>
+    <label for="newOperationName">Название операции:</label>
+    <input ng-model="newOperationData.newOperationName" class="addOperationFormField" id="newOperationName" type="text" placeholder="Введите название"><br />
 
-	<label for="newOperationGroup">Группа:</label>
+    <label for="newOperationGroup">Группа:</label>
 
-	<select ng-model="newOperationData.newOperationGroup" ng-options="group.name for group in operationGroups" class="addOperationFormField" id="newOperationGroup">
-	</select><br/>
+    <select ng-model="newOperationData.newOperationGroup" ng-options="group.name for group in operationGroups" class="addOperationFormField" id="newOperationGroup">
+    </select><br />
 
-	<label for="newOperationAccount">Счет:</label>
-	<select ng-model="newOperationData.newOperationAccount" ng-options="account.name for account in userAccounts" class="addOperationFormField" id="newOperationAccount">
-	</select><br/>
+    <label for="newOperationAccount">Счет:</label>
+    <select ng-model="newOperationData.newOperationAccount" ng-options="account.Name for account in accounts" class="addOperationFormField" id="newOperationAccount">
+    </select><br />
 
-	<label for="newOperationType">Тип операции:</label>
-	<select ng-model="newOperationData.newOperationType" ng-options="type.name for type in operationType" class="addOperationFormField" id="newOperationType">
-	</select><br/>
+    <label for="newOperationType">Тип операции:</label>
+    <select ng-model="newOperationData.newOperationType" ng-options="type.name for type in operationType" class="addOperationFormField" id="newOperationType">
+    </select><br />
 
-	<label for="newOperationDate">Дата операции:</label>
-	<input ng-model="newOperationDate" class="addOperationFormField" id="newOperationDate" type="datetime-local"><br/>
+    <label for="newOperationDate">Дата операции:</label>
+    <input ng-model="newOperationData.newOperationDate" class="addOperationFormField" id="newOperationDate" type="datetime-local"><br />
 
-	<label for="newOperationNominal">Сумма операции:</label>
-	<input ng-model="newOperationData.newOperationNominal" class="addOperationFormField" id="newOperationNominal" type="text" placeholder="Введите сумму"><br/>
+    <label for="newOperationNominal">Сумма операции:</label>
+    <input ng-model="newOperationData.newOperationNominal" class="addOperationFormField" id="newOperationNominal" type="text" placeholder="Введите сумму"><br />
 
-	<label for="newOperationNotes">Заметки:</label><br/>
-	<textarea ng-model="newOperationData.newOperationNotes" class="" id="newOperationNotes" placeholder="Ваши заметки" cols="50" rows="5"></textarea></br>
+    <label for="newOperationNotes">Заметки:</label><br />
+    <textarea ng-model="newOperationData.newOperationNotes" class="" id="newOperationNotes" placeholder="Ваши заметки" cols="50" rows="5"></textarea></br>
 
-	<button ng-click="TryAddOperation(newOperationData)" class="addBtn btns">Добавить</button>
+	<button ng-click="TryAddOperation(newOperationData, operationAddForm)" class="addBtn btns">Добавить</button>
 </form>

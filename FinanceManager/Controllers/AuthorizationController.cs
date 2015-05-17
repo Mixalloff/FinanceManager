@@ -82,19 +82,9 @@ namespace FinanceManager.Controllers
                     user.Password = password;
                     user.Roles.Add(new RoleRepository(context).FindByName("Админ"));
                     user.MainCurrency = new CurrencyRepository(context).FindByName(currency);
-                    new CurrencyRepository(context).FindByName(currency).Users.Add(user);
+                    user.Photo = photo != string.Empty ? FileWorker.GetSavePhoto(photo, login, "avatar") : null;
 
-                    if (photo != string.Empty)
-                    {
-                        MatchCollection matches = new Regex("data:image/(?<format>.*);base64,").Matches(photo);
-                        if (matches[0].Groups["format"].Success)
-                        {
-                            var imgFormat = matches[0].Groups["format"].Value;
-                            photo = photo.Substring(matches[0].Groups[0].Length);
-                            var base64str = System.Convert.FromBase64String(photo);
-                            user.Photo = FileWorker.SaveUserPhoto(base64str, imgFormat, login);
-                        }
-                    }
+                    new CurrencyRepository(context).FindByName(currency).Users.Add(user);
 
                     users.Create(user);
                     return this.Json("Пользователь успешно добавлен!");

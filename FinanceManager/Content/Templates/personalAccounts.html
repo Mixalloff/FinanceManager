@@ -3,20 +3,16 @@
 		<div class="col-md-12">
 		 <!-- col-md-push-2 -->
 			<div class="accountsBlock">
-				<!-- <h1>Мои счета</h1> -->
-				<div class="accountsContainer">
-					<!-- <div class="accountItem" ng-repeat="current in accounts">
-						<div class="accountItemImg">
-							<img ng-src={{current.img}} alt="">
-						</div>
-						<div class="accountItemName">{{current.name}}</div>
-						<div class="accountItemAmount">{{current.amount}}</div>
-					</div>	 -->
+                <h1>Мои счета</h1>
+                <button class="addBtn btns" ng-click="OpenAddAccountForm()">Добавить</button>
+                <!--<button class="delBtn btns">Удалить</button>-->
 
+				<div class="accountsContainer">   
 					<div class="accountItem" ng-repeat="current in accounts" ng-init='squareElemByHeight(".accountItem")'>
-						<span class="accountItemName">{{current.name}}</span></br>
-						<img class="accountItemImg" ng-src={{current.img}} alt="">
-						<span class="accountItemAmount">{{current.amount}}</span>
+                        <i class="closeBtn fa fa-close" ng-click="DeleteAccount(this)" enctype="multipart/form-data"></i>
+						<span class="accountItemName">{{current.Name}}</span></br>
+						<img class="accountItemImg" ng-src={{current.Logo}} alt="">
+						<span class="accountItemAmount">{{current.Balance}} <p>{{current.Currency}}</p></span>
 					</div>
 
 				</div>
@@ -24,3 +20,34 @@
 		</div>
 	</div>
 </div>
+
+<form class="accountAddForm" name="accountAddForm" ng-if="AddAccountFormVisible">
+
+    <i class="closeBtn fa fa-close" ng-click="CloseAddAccountForm()" enctype="multipart/form-data"></i>
+    <h1>Добавление счета</h1>
+
+    <label for="newAccountName">Название счета:</label>
+        <input ng-model="newAccountData.newAccountName" class="addAccountFormField" id="newAccountName" type="text" placeholder="Введите название счета"><br />
+
+    <label for="newAccountBalance">Исходный баланс:</label>
+        <input ng-model="newAccountData.newAccountBalance" class="addAccountFormField" id="newAccountBalance" type="text" placeholder="Ваш текущий баланс"><br />
+
+    <label for="newAccountType">Тип счета:</label>
+        <select ng-model="newAccountData.newAccountType" ng-options="type.Name for type in accountTypes" class="addAccountFormField" id="newAccountType">
+        </select><br />
+
+    <label for="newAccountCurrency">Валюта:</label>
+        <select ng-model="newAccountData.newAccountCurrency" ng-options="currency.Name for currency in currencies" class="addAccountFormField" id="newAccountCurrency">
+        </select><br />
+
+    
+    <label for="btnLoadImg">Логотип счета:</label>
+		<button id="btnLoadImg" class="addAccountFormField" onclick="$('#fileLoad').click()">Обзор</button>
+		<input fread="newAccountData.newAccountPhoto" type="file" id="fileLoad" accept="image/*" ng-show=false>
+
+    <div class="previewImgContainer">
+        <img image-align ng-src={{previewImgSrc}} alt="Предпросмотр изображения" />
+    </div>
+
+	<button ng-click="TryAddAccount(newAccountData,accountAddForm)" class="addBtn btns">Добавить</button>
+</form>

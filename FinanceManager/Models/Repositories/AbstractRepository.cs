@@ -27,10 +27,8 @@ namespace FinanceManager.Models.Repositories
         /// </summary>
         /// <returns>Список сущностей</returns>
         public virtual IEnumerable<T> GetAll()
-        {
-            
-                return context.Set<T>().ToList();
-           
+        {        
+            return context.Set<T>().ToList();  
         }
 
         /// <summary>
@@ -49,9 +47,7 @@ namespace FinanceManager.Models.Repositories
         /// <returns>Найденная сущность</returns>
         public virtual T FindById(int id)
         {
-            
-                return context.Set<T>().Find(id);
-            
+            return context.Set<T>().Find(id);    
         }
 
         /// <summary>
@@ -60,12 +56,9 @@ namespace FinanceManager.Models.Repositories
         /// <param name="entity">Добавляемая сущность</param>
         /// <returns>Сущность, которая была добавлена в БД</returns>
         public virtual T Create(T entity)
-        {
-            
-                context.Entry(entity).State = EntityState.Added;
-                this.Save();
-            
-
+        { 
+            context.Entry(entity).State = EntityState.Added;
+            this.Save();
             return entity;
         }
 
@@ -74,11 +67,9 @@ namespace FinanceManager.Models.Repositories
         /// </summary>
         /// <param name="entity">Удаляемая сущность</param>
         public virtual void Delete(T entity)
-        {
-           
-                context.Entry(entity).State = EntityState.Deleted;
-                this.Save();
-            
+        {    
+            context.Entry(entity).State = EntityState.Deleted;
+            this.Save();
         }
 
         /// <summary>
@@ -87,10 +78,8 @@ namespace FinanceManager.Models.Repositories
         /// <param name="entity">Обновляемая сущность</param>
         public virtual void Update(T entity)
         {
-           
-                context.Set<T>().AddOrUpdate(entity);
-                this.Save();
-            
+            context.Set<T>().AddOrUpdate(entity);
+            this.Save();
         }
     }
 }

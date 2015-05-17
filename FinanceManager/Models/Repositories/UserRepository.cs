@@ -6,8 +6,6 @@ using System.Web;
 using System.ComponentModel;
 using System.Data.Entity;
 
-
-
 namespace FinanceManager.Models.Repositories
 {
     /// <summary>
@@ -36,6 +34,7 @@ namespace FinanceManager.Models.Repositories
             return users
                 .Include(x => x.Roles)
                 .Include(x => x.Accounts)
+                .Include(x => x.Groups)
                 .Include(x => x.MainCurrency);            
         }
 

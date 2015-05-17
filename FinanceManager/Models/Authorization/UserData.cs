@@ -11,6 +11,11 @@ namespace FinanceManager.Models.Authorization
     public class UserData
     {
         /// <summary>
+        /// Возвращает или задает Id пользователя
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
         /// Возвращает или задает имя пользователя
         /// </summary>
         public string Name { get; set; }
