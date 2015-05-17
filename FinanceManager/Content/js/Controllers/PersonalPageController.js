@@ -70,8 +70,8 @@ function ($route, $routeParams, $location, $scope, $http) {
 
     $scope.logout = function () {
         deleteCookie(getCookie("CookieNameOfTicket"));
-        deleteCookie("VisitorName");
-        deleteCookie("VisitorSurname");
+       // deleteCookie("VisitorName");
+      //  deleteCookie("VisitorSurname");
         deleteCookie("CookieNameOfTicket");
         document.location.href = '/';
     }

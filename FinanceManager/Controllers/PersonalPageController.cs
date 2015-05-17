@@ -221,9 +221,16 @@ namespace FinanceManager.Controllers
                     data.Email = user.Email;
                     data.Image = user.Photo;
                     data.Currency = user.MainCurrency.Name;
-
-                    // Заглушка на баланс (необходимо рассчитывать на основании счетов и операций)
                     data.Balance = 0;
+
+                    // Расчет баланса пользователя
+                    foreach (var account in new AccountRepository(context).GetAll())
+                    {
+                        if (account.User.UserId == user.UserId)
+                        {
+                            data.Balance += account.Balance / account.CurrencyOfAccount.Quote * user.MainCurrency.Quote;
+                        }
+                    }
 
                     return this.Json(data, JsonRequestBehavior.AllowGet);
                 }

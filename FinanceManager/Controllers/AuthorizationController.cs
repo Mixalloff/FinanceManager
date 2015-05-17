@@ -44,8 +44,8 @@ namespace FinanceManager.Controllers
                         }
 
                         // Работа с куки
-                        Response.Cookies["VisitorName"].Value = user.Name;
-                        Response.Cookies["VisitorSurname"].Value = user.Surname;
+                 //       Response.Cookies["VisitorName"].Value = user.Name;
+                  //      Response.Cookies["VisitorSurname"].Value = user.Surname;
                         Response.Cookies["CookieNameOfTicket"].Value = FormsAuthentication.FormsCookieName;
 
                         DateTime expiration = DateTime.Now.AddHours(1);
