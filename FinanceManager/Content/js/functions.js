@@ -66,6 +66,8 @@ $(document).ready(function () {
     $(".animationRight").animated("fadeInRight", "fadeOutLeft");
     $(".animationImg").animated("zoomIn", "zoomOut");
 
+    $(function () { $("input,select,textarea").not("[type=submit]").jqBootstrapValidation(); });
+
 });
 
 // Определение высоты элемента по высоте экрана

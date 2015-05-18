@@ -78,7 +78,7 @@
 				</div>
 
 				<div class="col-md-4 col-md-pull-4 usualText animationLeft">
-					<p>
+					<p class="themeTextColor">
 						<b>Finance Manager</b> предоставляет возможность вести свой бюджет, учитывая все источники финансов и затраты, в одном месте.
 					</p>
 					<p>
@@ -87,7 +87,7 @@
 				</div>
 				
 				<div class="col-md-4 usualText animationRight">
-					<p>
+					<p class="themeTextColor">
 						Используя <b>Finance Manager</b>, вы никогда не забудете оплатить телефон или интернет, а также отдать долг или выполнить другие запланированные финансовые действия.
 					</p>
 					<div class="socialNetworks">
@@ -130,7 +130,7 @@
 			<div class="row">
 
 				<div class="col-md-3 tariffs animationLeft vipTariff">
-					<h1>VIP</h1>
+					<h1 class="themeTextColor">VIP</h1>
 					<div class="tariffInfo">
 						<ul>
 							<li>Неограниченное количество счетов</li>
@@ -139,11 +139,11 @@
 							<li>Мониторинг всех потоков в реальном времени</li>							
 						</ul>
 					</div>
-					<div class="tariffPrice">10000 руб./месяц</div>
+					<div class="tariffPrice themeBackColor">10000 руб./месяц</div>
 				</div>
 
-				<div class="col-md-4 col-md-push-1 tariffs animationTop standartTariff">
-					<h1>Стандарт</h1>
+				<div class="col-md-4 col-md-push-1 tariffs standartTariff">
+					<h1 class="themeTextColor">Стандарт</h1>
 					<div class="tariffInfo">
 						<ul>
 							<li>Добавление до 6 счетов</li>
@@ -152,18 +152,18 @@
 							<li>Напоминания о запланированных затратах</li>
 						</ul>
 					</div>
-					<div class="tariffPrice">5000 руб./месяц</div>
+					<div class="tariffPrice themeBackColor">5000 руб./месяц</div>
 				</div>
 
 				<div class="col-md-3 col-md-push-2 tariffs animationRight cheepTariff" >
-					<h1>Эконом</h1>
+					<h1 class="themeTextColor">Эконом</h1>
 					<div class="tariffInfo">
 						<ul>
 							<li>Добавление до 3 счетов</li>
 							<li>...</li>
 						</ul>
 					</div>
-					<div class="tariffPrice">1000 руб./месяц</div>
+					<div class="tariffPrice themeBackColor">1000 руб./месяц</div>
 				</div>
 
 			</div>
@@ -177,8 +177,53 @@
 		<div class="line"></div>
 		</div>
         <div class="container">
-			<div class="row">
-				<div class="contactsBlock col-md-12 animationBottom ">
+			<div class="row contacts">
+				<div class="contactsBlock col-md-6 col-sm-6 animationLeft ">
+                    <div class="contactContainer">
+                        <i class="fa fa-map-marker themeTextColor"></i>
+                        <h3>Юридический адрес:</h3>
+                        <p class="themeTextColor">Россия, г. Иваново, ул. Пушкина, д. 1</p>
+                    </div>
+
+                    <div class="contactContainer">
+                        <i class="fa fa-phone themeTextColor"></i>
+                        <h3>Телефон:</h3>
+                        <p class="themeTextColor">+7 (910) 982 54 09</p>
+                    </div>
+
+                    <div class="contactContainer">
+                        <i class="fa fa-envelope themeTextColor"></i>
+                        <h3>E-mail:</h3>
+                        <p class="themeTextColor">financemanager@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contactsBlock col-md-6 col-sm-6 animationRight ">
+
+                    <form class="contactForm" novalidate method="POST" action="http://formspree.io/mikhail.mikhalev37@gmail.com" target="_blank">
+    
+                        <label class="form-group">
+                            <span> * </span>Ваше имя:
+                            <input type="text" name="name" placeholder="Введите ваше имя" data-validation-required-message=
+        "Вы не ввели имя" required />
+                            <span class="help-block text-danger"></span>
+                        </label>
+
+                        <label class="form-group">
+                            <span> * </span>Ваш e-mail:
+                            <input type="email" id="e-mail" name="e-mail" data-validation-email-message="Некорректно введен e-mail" placeholder="Введите ваш e-mail" />
+                            <span class="help-block text-danger"></span>
+                        </label>
+
+                        <label class="form-group">
+                            <span> * </span>Ваше сообщение:
+                            <textarea name="message" placeholder="Введите ваше сообщение" data-validation-required-message=
+        "Вы не ввели сообщение" required></textarea>
+                            <span class="help-block text-danger"></span>
+                        </label>
+
+
+                        <button method="POST" class="themeBackColor">Отправить</button>
+                    </form>
                 </div>
             </div>
         </div>
